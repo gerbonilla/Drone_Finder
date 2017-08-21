@@ -9,29 +9,4 @@
 
 
 
-<!-- sample of drones that -->
 
-<div class="container">
-  <div class="row">
-    <% @drones.each do |d| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card">
-          <% if d.photo? %>
-            <%= image_path d.photo, height: 250, width: 340, crop: :fill %>
-          <% else %>
-            <%= image_tag("http://via.placeholder.com/340x250") %>
-          <% end %>
-          <div class="card-description">
-            <h2>From &euro;<%= d.rate %>. <%= d.title %>.</h2>
-            <h3><%= d.description %>.</h3>
-          </div>
-          <%= link_to drone_path(d.id), class: "card-link" do %>
-          Link
-          <% end %>
-        <!-- end card div -->
-        </div>
-      <!-- end column div -->
-      </div>
-    <% end %>
-  </div>
-</div>
