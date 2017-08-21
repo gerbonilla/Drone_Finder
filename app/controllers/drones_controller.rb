@@ -41,7 +41,7 @@ class DronesController < ApplicationController
 
   private
 
-  def set_cocktail
+  def set_drone
     @drone = Drone.find(params[:id])
   end
 
