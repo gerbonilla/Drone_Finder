@@ -6,14 +6,16 @@ class DronesController < ApplicationController
   end
 
   def show
-    @drone = Drone.find(params[:id])
+
   end
 
   def new
+    @drone = Drone.new()
   end
 
   def create
-     @drone = Drone.new(drone_params)
+    @drone = Drone.new(drone_params)
+    @drone.user = current_user
     if @drone.save
       redirect_to drone_path(@drone)
     else
@@ -46,6 +48,7 @@ class DronesController < ApplicationController
   end
 
   def drone_params
-    params.require(:drone).permit(:photo)
+    params.require(:drone).permit(:title, :description, :rate, :address, :photo, :feature_attributes => [:category])
   end
+
 end
