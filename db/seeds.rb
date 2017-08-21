@@ -17,8 +17,7 @@ sample_users = [peter, stewie, meg]
 Drone.destroy_all
 sample_users.each do |user|
   3.times do
-    new_drone = Drone.create(user: user, title:Faker::Superhero.name, description: Faker::Superhero.power, rate: rand(10..200), address: Faker::Address.street_address)
-    new_feature = Feature.create(drone: new_drone, category: "Professional", max_alt: 400, battery_life: "10 hours")
+    new_drone = Drone.create(user: user, title:Faker::Superhero.name, description: Faker::Superhero.power, rate: rand(10..200), address: Faker::Address.street_address, category: "Professional", max_alt: 400, battery_life: "10 hours")
   end
 end
 

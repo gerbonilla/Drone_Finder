@@ -1,2 +1,13 @@
-<h1>Drones#new</h1>
-<p>Find me in app/views/drones/new.html.erb</p>
+<h1>Create new drone</h1>
+
+<%= simple_form_for @drone do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :rate %>
+  <%= f.input :address %>
+  <%= f.input :category %>
+  <%= f.input :max_alt %>
+  <%= f.input :range %>
+  <%= f.input :battery_life %>
+  <%= f.submit %>
+<% end %>
