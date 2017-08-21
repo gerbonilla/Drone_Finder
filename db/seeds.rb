@@ -21,13 +21,6 @@ Booking.create(user: peter, drone_id: 8, status: "rejected")
 Booking.create(user: meg, drone_id: 2, status: "pending")
 Booking.create(user: meg, drone_id: 5, status: "accepted")
 
-# #create bookings
-# t.integer  "user_id"
-# t.integer  "drone_id"
-# t.string   "status"
-# t.date     "start_date"
-# t.date     "end_date"
-# t.integer  "original_rate"
 
 
 
