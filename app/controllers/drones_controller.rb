@@ -37,10 +37,14 @@ class DronesController < ApplicationController
     redirect_to drones_path
   end
 
+
   private
 
   def set_cocktail
     @drone = Drone.find(params[:id])
   end
 
+  def drone_params
+    params.require(:drone).permit(:photo)
+  end
 end
