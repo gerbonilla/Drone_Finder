@@ -14,6 +14,13 @@ sample_users.each do |user|
   end
 end
 
+Booking.create(user: stewie, drone_id: 1, status: "pending")
+Booking.create(user: stewie, drone_id: 8, status: "accepted")
+Booking.create(user: peter, drone_id: 5, status: "pending")
+Booking.create(user: peter, drone_id: 8, status: "rejected")
+Booking.create(user: meg, drone_id: 2, status: "pending")
+Booking.create(user: meg, drone_id: 5, status: "accepted")
+
 # #create bookings
 # t.integer  "user_id"
 # t.integer  "drone_id"
