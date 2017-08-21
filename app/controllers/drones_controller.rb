@@ -4,6 +4,7 @@ class DronesController < ApplicationController
   end
 
   def show
+    @drone = Drone.find(params[:id])
   end
 
   def new

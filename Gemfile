@@ -8,6 +8,7 @@ gem 'puma'
 gem 'rails', '5.0.5'
 gem 'redis'
 gem 'devise'
+gem 'faker'
 
 # attachinary set up
 gem 'cloudinary', '1.1.7'
