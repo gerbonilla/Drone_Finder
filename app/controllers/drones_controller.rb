@@ -20,4 +20,11 @@ class DronesController < ApplicationController
 
   def destroy
   end
+
+private
+
+  def drone_params
+    params.require(:drone).permit(:photo)
+  end
+
 end
