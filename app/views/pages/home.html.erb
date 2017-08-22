@@ -1,8 +1,6 @@
+<%= video_tag(["clouds.mp4"], :size => "900x500", :autoplay => true, :loop => true) %>
 
-<%= video_tag(["clouds.mp4"], :size => "320x240", :autoplay => true, :loop => true) %>
-
-
-<div class="home-banner">
+<div class="vhome-banner">
   <h1>DRONE FINDER</h1>
 
   <div class="screen">
@@ -10,40 +8,4 @@
   </div>
   <%= render 'pages/search-form-home' %>
 </div>
-
-
-<div class="drones-wrapper">
-  <div class="header-container-drone-samples">
-    <div id="title-column">
-      <h3>Drones</h3>
-    </div>
-    <div id="button-column">
-      <button class="astext">
-        <span>See all ></span>
-      </button>
-    </div>
-  </div>
-  <div class="scrolling-wrapper">
-    <% @drones.each do |d| %>
-    <div class="card card-left-scroll">
-      <% if d.photo? %>
-        <%= image_path d.photo, height: 250, width: 340, crop: :fill %>
-      <% else %>
-        <%= image_tag("http://via.placeholder.com/340x250") %>
-      <% end %>
-      <div class="card-description">
-        <h2>From &euro;<%= d.rate %>. <%= d.title %>.</h2>
-        <h3><%= d.description %>.</h3>
-      </div>
-      <%= link_to drone_path(d.id), class: "card-link" do %>
-      Link
-      <% end %>
-    </div>
-    <% end %>
-  </div>
-</div>
-
-
-
-
 
