@@ -19,10 +19,10 @@ class Drone < ApplicationRecord
   end
 
 
-  # validates :category, :inclusion=> { :in => DRONE_CATEGORIES }
-  # validates :max_alt, :inclusion=> { :in => DRONE_MAX_ALT }
-  # validates :range, :inclusion=> { :in => DRONE_RANGE }
-  # validates :battery_life, :inclusion=> { :in => DRONE_BATTERY_LIFE }
+  validates :category, :inclusion=> { :in => DRONE_CATEGORIES }
+  validates :max_alt, :inclusion=> { :in => DRONE_MAX_ALT }
+  validates :range, :inclusion=> { :in => DRONE_RANGE }
+  validates :battery_life, :inclusion=> { :in => DRONE_BATTERY_LIFE }
 
 end
 
