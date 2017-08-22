@@ -1,0 +1,106 @@
+.drone-container {
+  background-color: #F4F4F4;
+}
+
+// .wrapper {
+//   background-color: #edeaea;
+// }
+
+#img-owner {
+  width: 100px !important;
+}
+
+.drone-details {
+  border-bottom: 1px solid #767676;
+  padding: 30px;
+  margin-right: 0px;
+  padding-right: 0px;
+  text-align: center;
+}
+
+
+.features-list {
+  padding: 30px;
+  border-bottom: 1px solid #767676;
+}
+
+.drone-infos {
+  margin-top: 30px;
+  text-align: left;
+}
+
+
+.icons-list {
+  padding: 20 px;
+  text-align: center;
+  img {
+    width: 40 px;
+  }
+}
+
+.drone-about {
+  padding-bottom: 30px;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #767676;
+  img {
+    width: 100px;
+  }
+}
+.message:last-child {
+  border-bottom: none;
+}
+.message-body {
+  flex-grow: 1;
+}
+.message-name {
+  padding-left: 10px;
+  min-width: 100px;
+}
+.message-name h3 {
+  font-size: 13px;
+  margin-bottom: 0px;
+}
+.message-name p {
+  font-size: 13px;
+  font-weight: lighter;
+  opacity: 0.6;
+  margin-top: 5px;
+}
+.message-body {
+  padding-left: 10px;
+  font-size: 16px;
+  color: rgba(0,0,0,0.7);
+}
+.message-body {
+  padding-left: 20px;
+  color: rgba(0,0,0,0.4);
+}
+.message-body strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+.message-body p {
+  margin: 6px 0;
+}
+.message-status {
+  font-size: 16px;
+  font-weight: bold;
+}
+.status.accepted {
+  color: #04A366;
+}
+.status.declined {
+  color: red;
+}
+.status.pending {
+  color: lightgrey;
+}
+
+
+
