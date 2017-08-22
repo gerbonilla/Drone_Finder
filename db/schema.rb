@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170821170315) do
+ActiveRecord::Schema.define(version: 20170822074224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,17 @@ ActiveRecord::Schema.define(version: 20170821170315) do
     t.index ["user_id"], name: "index_drones_on_user_id", using: :btree
   end
 
+  create_table "features", force: :cascade do |t|
+    t.integer  "drone_id"
+    t.string   "category"
+    t.integer  "max_alt"
+    t.string   "range"
+    t.string   "battery_life"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["drone_id"], name: "index_features_on_drone_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -78,6 +89,11 @@ ActiveRecord::Schema.define(version: 20170821170315) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "photo"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "facebook_picture_url"
+    t.string   "token"
+    t.datetime "token_expiry"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -85,4 +101,5 @@ ActiveRecord::Schema.define(version: 20170821170315) do
   add_foreign_key "bookings", "drones"
   add_foreign_key "bookings", "users"
   add_foreign_key "drones", "users"
+  add_foreign_key "features", "drones"
 end
