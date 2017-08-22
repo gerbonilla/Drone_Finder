@@ -21,3 +21,13 @@
 .container-banner {
   background-size: cover;
 }
+
+a#call-to-action-btn {
+    color: white;
+    background-color: #469AE0;
+    padding: 6px 11px;
+    border-radius: 3px;
+    &:hover {
+      text-decoration: none;
+    }
+}
