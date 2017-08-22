@@ -1,0 +1,51 @@
+<p>PROFILE SHOW PAGE</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-8">
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <th scope="row"></th>
+            <td>
+              <% if @profile.first_name %>
+                <%= @profile.first_name %>
+              <% else %>
+                <p>No first name</p>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to 'edit' %>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>
+              <% if @profile.last_name != nil %>
+                <%= @profile.last_name %>
+              <% else %>
+                <p>No last name</p>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td colspan="2">
+              <% if @profile.description != nil %>
+                <%= @profile.description %>
+              <% else %>
+                <p>No description</p>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td colspan="2">
+              <%= @profile.email %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
