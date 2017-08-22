@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 
   resources :profiles, only: [:show, :update]
-  resources :users, only: [:show, :update]
+
 
   resources :drones do
     resources :bookings, only: [ :create ]
