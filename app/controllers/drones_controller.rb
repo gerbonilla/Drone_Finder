@@ -2,8 +2,9 @@ class DronesController < ApplicationController
   before_action :set_drone, only: [:show, :edit, :update, :destroy]
 
   def index
-    @drones = Drone.all
-
+    start_date = date_formatting(params[:start])
+    end_date = date_formatting(params[:end])
+    @drones = Drone.all.select { |d| d.available?(start_date, end_date) }
   end
 
   def show
@@ -43,6 +44,12 @@ class DronesController < ApplicationController
 
 
   private
+
+  def date_formatting(date_string)
+    items = date_string.split("/")
+    date = Date.new(items[2].to_i, items[0].to_i, items[1].to_i)
+    return date
+  end
 
   def set_drone
     @drone = Drone.find(params[:id])
