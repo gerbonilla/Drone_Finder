@@ -8,10 +8,7 @@ class Drone < ApplicationRecord
   DRONE_RANGE = [100, 150, 200, 300, 500, 1000, 3000, 7000]
   DRONE_BATTERY_LIFE = [10, 15, 20, 25, 30, 45, 60]
 
-  validates :category, :inclusion=> { :in => DRONE_CATEGORIES }
-  validates :max_alt, :inclusion=> { :in => DRONE_MAX_ALT }
-  # validates :range, :inclusion=> { :in => DRONE_RANGE }
-  # validates :battery_life, :inclusion=> { :in => DRONE_BATTERY_LIFE }
+
 
   def available?(request_start, request_end)
     available = true
@@ -20,6 +17,12 @@ class Drone < ApplicationRecord
     end
     return available
   end
+
+
+  # validates :category, :inclusion=> { :in => DRONE_CATEGORIES }
+  # validates :max_alt, :inclusion=> { :in => DRONE_MAX_ALT }
+  # validates :range, :inclusion=> { :in => DRONE_RANGE }
+  # validates :battery_life, :inclusion=> { :in => DRONE_BATTERY_LIFE }
 
 end
 
