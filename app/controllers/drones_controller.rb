@@ -2,7 +2,7 @@ class DronesController < ApplicationController
   before_action :set_drone, only: [:show, :edit, :update, :destroy]
 
   def index
-    @drones = Drone.all.select {}
+    @drones = Drone.all
 
   end
 
