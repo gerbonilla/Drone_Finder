@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
 
+
+  resources :profiles, only: [:show, :update]
+
+
   resources :drones do
     resources :bookings, only: [ :create ]
   end
