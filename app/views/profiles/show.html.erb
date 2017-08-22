@@ -1,6 +1,6 @@
 <p>PROFILE SHOW PAGE</p>
 
-<div class="container">
+<div class="container" id="profileForm1">
   <div class="row">
     <div class="col-sm-4 col-sm-offset-8">
       <table class="table table-hover">
@@ -15,7 +15,7 @@
               <% end %>
             </td>
             <td>
-              <%= link_to 'edit' %>
+              <%= link_to 'edit', id: "editProfile" %>
             </td>
           </tr>
           <tr>
@@ -49,3 +49,30 @@
     </div>
   </div>
 </div>
+
+
+<div class="container" id="profileForm2">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-8">
+      <%= simple_form_for(@profile, html: { class: "form-group"}) do |f| %>
+        <%= f.input :first_name, label: false, placeholder: "First name" %>
+        <%= f.input :last_name, label: false, placeholder: "Last name" %>
+        <%= f.input :description, label: false, placeholder: "Tell us about yourselfe" %>
+        <%= f.input :email, label: false, placeholder: "example@gmail.com" %>
+        <%= f.button :submit, class: "btn", id: "update-profile" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-<<<<<<< HEAD
+
   before_action :set_profile, only: [:show, :update]
 
   def show
@@ -25,10 +25,21 @@ private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :description, :email)
   end
-=======
+
+  before_action :set_profile, only: [:show, :edit]
+
 
   def show
+  end
+
+  def edit
+  end
+
+
+private
+
+  def set_profile
     @profile = User.find(params[:id])
   end
->>>>>>> profile info exist
+
 end
