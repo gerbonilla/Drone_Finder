@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
 
   resources :profiles, only: [:show, :edit, :update]
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit]
   resources :drones do
     resources :bookings, only: [ :create ]
   end
