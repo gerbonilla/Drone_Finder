@@ -2,9 +2,13 @@ class DronesController < ApplicationController
   before_action :set_drone, only: [:show, :edit, :update, :destroy]
 
   def index
-    start_date = date_formatting(params[:start])
-    end_date = date_formatting(params[:end])
-    @drones = Drone.all.select { |d| d.available?(start_date, end_date) }
+    if params[:start].nil? || params[:end].nil?
+      @drones = Drone.all
+    else
+      start_date = date_formatting(params[:start])
+      end_date = date_formatting(params[:end])
+      @drones = Drone.all.select { |d| d.available?(start_date, end_date) }
+    end
   end
 
   def show
