@@ -16,16 +16,16 @@
     <%= f.input :address %>
   </div>
   <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-    <%= f.input :category %>
+    <%= f.input :category, collection: Drone::DRONE_CATEGORIES %>
   </div>
   <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-    <%= f.input :max_alt %>
+    <%= f.input :max_alt, collection: Drone::DRONE_MAX_ALT %>
   </div>
   <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-    <%= f.input :range %>
+    <%= f.input :range, collection: Drone::DRONE_RANGE %>
   </div>
   <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-    <%= f.input :battery_life %>
+    <%= f.input :battery_life, collection: Drone::DRONE_BATTERY_LIFE %>
   </div>
   <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
     <%= f.input :photo, as: :attachinary %>
