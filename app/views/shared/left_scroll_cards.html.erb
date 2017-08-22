@@ -1,0 +1,32 @@
+
+<div class="drones-wrapper">
+  <div class="header-container-drone-samples">
+    <div id="title-column">
+      <h3>Drones</h3>
+    </div>
+    <div id="button-column">
+      <button class="astext">
+        <span><%= link_to "See All", drones_path %></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="scrolling-wrapper">
+    <% @drones.each do |d| %>
+    <div class="card card-left-scroll">
+      <% if d.photos.first %>
+        <%= image_path d.photos.first, height: 250, width: 340, crop: :fill %>
+      <% else %>
+        <%= image_tag("http://via.placeholder.com/340x250") %>
+      <% end %>
+      <div class="card-description">
+        <h2>From &euro;<%= d.rate %>. <%= d.title %>.</h2>
+        <h3><%= d.description %>.</h3>
+      </div>
+      <%= link_to drone_path(d.id), class: "card-link" do %>
+      Link
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>

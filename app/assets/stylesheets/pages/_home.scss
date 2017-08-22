@@ -1,74 +1,33 @@
-.home-banner {
-  background: image-url('sky_image.jpg');
-  background-size: cover;
-  height: 500px;
-  text-align: center;
-}
 
-.home-banner h1 {
-  font-size: 80px;
-  font-weight: bold;
-  padding: 40px 0px 10px 0px;
-  color: #469AE0;
-  margin: 0px;
-}
-
-.home-banner h3 {
-  font-size: 20px;
-  color: white;
-  font-weight: lighter;
-  margin: 0px;
-}
-
-.home-banner .screen {
-  background: rgba(70, 154, 224, 0.5);
-  max-width: 700px;
-  padding: 5px 0px 5px 0px;
-  margin: auto;
-  margin-bottom: 30px;
-}
-
-.drones-wrapper {
-  margin-top: 40px;
-
-  .scrolling-wrapper {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-
-    .card-left-scroll {
-      display: inline-block;
-    }
-  }
-}
+// CURRENTLY NOT USING THIS CSS, USING VIDEO INSTEAD FOR HOME
 
 
-.header-container-drone-samples {
-  display: flex;
-  flex-flow: row;
-  justify-content: space-between;
-  margin: 0px 10px;
+// .home-banner {
+//   background: image-url('sky_image.jpg');
+//   background-size: cover;
+//   height: 500px;
+//   text-align: center;
+// }
 
-  #button-column {
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-end;
-  }
+// .home-banner h1 {
+//   font-size: 80px;
+//   font-weight: bold;
+//   padding: 40px 0px 10px 0px;
+//   color: #469AE0;
+//   margin: 0px;
+// }
 
-  #title-column {
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-start;
-  }
-}
+// .home-banner h3 {
+//   font-size: 20px;
+//   color: white;
+//   font-weight: lighter;
+//   margin: 0px;
+// }
 
-
-.astext {
-    background:none;
-    border:none;
-    margin-bottom:6px;
-    padding:0;
-}
-.astext:hover {
-  opacity: 0.7
-}
+// .home-banner .screen {
+//   background: rgba(70, 154, 224, 0.5);
+//   max-width: 700px;
+//   padding: 5px 0px 5px 0px;
+//   margin: auto;
+//   margin-bottom: 30px;
+// }

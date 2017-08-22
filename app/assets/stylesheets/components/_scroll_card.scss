@@ -1,0 +1,46 @@
+
+.drones-wrapper {
+  margin-top: 40px;
+
+  .scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+    .card-left-scroll {
+      display: inline-block;
+    }
+  }
+}
+
+
+.header-container-drone-samples {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  margin: 0px 10px;
+
+  #button-column {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+  }
+
+  #title-column {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+  }
+}
+
+
+.astext {
+    background:none;
+    border:none;
+    margin-bottom:6px;
+    padding:0;
+}
+.astext:hover {
+  opacity: 0.7
+}
+
