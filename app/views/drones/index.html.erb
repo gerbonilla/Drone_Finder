@@ -8,8 +8,8 @@
       <div class="col-xs-12 col-sm-4">
 
         <div class="card">
-          <% if d.photo? %>
-            <%= image_path d.photo, height: 250, width: 340, crop: :fill %>
+          <% if d.photos.first %>
+            <%= cl_image_tag d.photos.first.path, height: 250, width: 340, crop: :fill %>
           <% else %>
             <%= image_tag("http://via.placeholder.com/340x250") %>
           <% end %>
