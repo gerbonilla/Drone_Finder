@@ -23,9 +23,9 @@
     <% @drones.each do |d| %>
     <div class="card card-left-scroll">
       <% if d.photo? %>
-      <%= image_path d.photo, height: 250, width: 340, crop: :fill %>
+        <%= image_path d.photo, height: 250, width: 340, crop: :fill %>
       <% else %>
-      <%= image_tag("http://via.placeholder.com/340x250") %>
+        <%= image_tag("http://via.placeholder.com/340x250") %>
       <% end %>
       <div class="card-description">
         <h2>From &euro;<%= d.rate %>. <%= d.title %>.</h2>
