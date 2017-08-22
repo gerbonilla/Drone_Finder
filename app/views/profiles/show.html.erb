@@ -54,7 +54,7 @@
 <div class="container" id="profileForm2">
   <div class="row">
     <div class="col-sm-4 col-sm-offset-8">
-      <%= simple_form_for(@profile, html: { class: "form-group"}) do |f| %>
+      <%= simple_form_for(@profile, url: profile_path(@profile), method: :patch, html: { class: "form-group"}) do |f| %>
         <%= f.input :first_name, label: false, placeholder: "First name" %>
         <%= f.input :last_name, label: false, placeholder: "Last name" %>
         <%= f.input :description, label: false, placeholder: "Tell us about yourselfe" %>
@@ -66,7 +66,31 @@
 </div>
 
 
-
+<div class="drones-wrapper">
+  <div class="header-container-drone-samples">
+    <div id="title-column">
+      <h3>Your drones</h3>
+    </div>
+  </div>
+  <div class="scrolling-wrapper">
+    <% @user_drones.each do |d| %>
+    <div class="card card-left-scroll">
+      <% if d.photo? %>
+        <%= image_path d.photo, height: 250, width: 340, crop: :fill %>
+      <% else %>
+        <%= image_tag("http://via.placeholder.com/340x250") %>
+      <% end %>
+      <div class="card-description">
+        <h2><%= d.title %>. <%= d.category %>. </h2>
+        <h3><%= d.description %>.</h3>
+      </div>
+      <%= link_to drone_path(d.id), class: "card-link" do %>
+      Link
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
 
 
 
