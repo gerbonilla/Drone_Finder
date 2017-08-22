@@ -9,4 +9,13 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
+
+
+  def current_user
+    @current_user = User.find_by_id(session[:user])
+  end
+
+  def logged_in?
+    @current_user != nil
+  end
 end
