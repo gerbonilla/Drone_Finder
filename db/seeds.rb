@@ -1,8 +1,12 @@
-drone_categories = ["close range", "short range", "mid range", "endurance"]
-drone_max_alt = [50, 80, 100, 150, 200, 300, 500, 1000]
-drone_range = ["100m", "150m", "200m", "300m", "500m", "1000m", "3000m", "7000m"]
-battery_life = ["10 min", "15 min", "20 min", "25 min", "30 min", "45 min", "60 min"]
 
+# Notes for valid drone filters - see drone validation
+category = ["close range", "short range", "mid range", "endurance"]
+max_alt = [50, 80, 100, 150, 200, 300, 500, 1000]
+range = [100, 150, 200, 300, 500, 1000, 3000, 7000]
+battery_life = [10, 15, 20, 25, 30, 45, 60]
+
+# Notes for valid booking filters - see booking validation
+status = ["pending", "confimed", "cancelled", "personal"]
 
 
 #create 3 users
