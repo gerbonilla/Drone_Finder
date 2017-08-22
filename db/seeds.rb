@@ -23,9 +23,9 @@ end
 
 # create bookings
 Booking.destroy_all
-Booking.create(user: stewie, drone_id: 1, status: "pending")
-Booking.create(user: stewie, drone_id: 8, status: "accepted")
-Booking.create(user: peter, drone_id: 5, status: "pending")
-Booking.create(user: peter, drone_id: 8, status: "rejected")
-Booking.create(user: meg, drone_id: 2, status: "pending")
-Booking.create(user: meg, drone_id: 5, status: "accepted")
+Booking.create(user: stewie, drone_id: 1, status: "pending", start_date: Date.new(2017, 8, 30), end_date: Date.new(2017, 9, 4))
+Booking.create(user: stewie, drone_id: 8, status: "accepted", start_date: Date.new(2017, 10, 10), end_date: Date.new(2017, 10, 17))
+Booking.create(user: peter, drone_id: 5, status: "pending", start_date: Date.new(2017, 8, 25), end_date: Date.new(2017, 9, 16))
+Booking.create(user: peter, drone_id: 8, status: "rejected", start_date: Date.new(2017, 12, 25), end_date: Date.new(2017, 12, 27))
+Booking.create(user: meg, drone_id: 2, status: "pending", start_date: Date.new(2017, 11, 10), end_date: Date.new(2017, 11, 12))
+Booking.create(user: meg, drone_id: 5, status: "accepted", start_date: Date.new(2017, 8, 26), end_date: Date.new(2017, 8, 30))
