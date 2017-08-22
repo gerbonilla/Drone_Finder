@@ -2,7 +2,7 @@ class DronesController < ApplicationController
   before_action :set_drone, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:start].nil? || params[:end].nil?
+    if params[:start].blank? || params[:end].blank?
       @drones = Drone.all
     else
       start_date = date_formatting(params[:start])
