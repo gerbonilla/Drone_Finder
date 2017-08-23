@@ -5,10 +5,10 @@
     <div class="col-sm-4 col-sm-offset-1">
       <table class="table table-hover">
         <% @bookings.each do |booking| %>
-          <% if booking.status = "pending" %>
+          <% if booking.status == "pending" %>
             <thead>
               <tr>
-                <th>*Drone Name*</th>
+                <th>*drone name*</th>
               </tr>
             </thead>
             <tbody>
@@ -20,8 +20,9 @@
 
                       </button>
                       <div class="dropdown-menu">
-                        <%= link_to "confirm", booking_path(@booking), name: "status", method: :patch %>
-                        <%= link_to "cancel", booking_path(@booking), name: "status", method: :patch %>
+                        <%= button_to "confirmed", booking_path(booking), name: "status", method: :patch %>
+                        <%= button_to "declined", booking_path(booking), name: "status", method: :patch %>
+                        <%= button_to "cancelled", booking_path(booking), name: "status", method: :patch %>
                         <div class="dropdown-divider"></div>
                       </div>
                     </div>
