@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :drone
+  has_many :reviews
 
   status = ["pending", "confirmed", "cancelled", "personal"]
   validates :status, :inclusion=> { :in => status }
@@ -28,5 +29,4 @@ class Booking < ApplicationRecord
   def personal
     self.status = "personal"
   end
-
 end
