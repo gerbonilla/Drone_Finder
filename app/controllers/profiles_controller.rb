@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
   def show
     @user_drones = Drone.all.select { |d| d.user_id = current_user.id }
     @bookings = Booking.all.select { |b| b.user_id = current_user.id }
+    @drones = Drone.all.select { |d| d.user_id = current_user.id }
     @booking = Booking.find(params[:id])
   end
 

@@ -56,7 +56,10 @@
             </div>
             <div class="col-sm-3">
               <img class="img-circle" id="img-owner" src="https://kitt.lewagon.com/placeholder/users/random">
-              <p>Username<i class="fa fa-star"></i></p>
+              <p><%= @drone.user.first_name %></p>
+              <% @drone.user.average_rating.times do %>
+                <i class="fa fa-star"></i>
+              <% end %>
             </div>
             <div class="col-sm-4 drone-infos">
               <h3>About this drone:</h3>
@@ -88,25 +91,25 @@
         <div class="col-sm-3">
           <div class="icons-list">
             <%= image_tag "drone.png" %>
-            <p>mid range</p>
+            <p><%= @drone.category %></p>
           </div>
         </div>
         <div class="col-sm-3">
           <div class="icons-list">
             <%= image_tag "altitude.png" %>
-            <p>500 m</p>
+            <p><%= @drone.max_alt %> m</p>
           </div>
         </div>
         <div class="col-sm-3">
           <div class="icons-list">
             <%= image_tag "range.png" %>
-            <p>5km</p>
+            <p><%= @drone.range %> km</p>
           </div>
         </div>
         <div class="col-sm-3">
           <div class="icons-list">
             <%= image_tag "battery.png" %>
-            <p>30 min</p>
+            <p><%= @drone.battery_life %> min</p>
           </div>
         </div>
       </div>
@@ -119,7 +122,7 @@
         <img class="avatar-large img-circle" src="https://kitt.lewagon.com/placeholder/users/random">
         <div class="message-name">
           <h3><%= review.booking.user.first_name %></h3>
-          <p><%= review.created_at %></p>
+          <p><%= review.created_at.strftime("%d/%m/%Y") %></p>
         </div>
         <div class="message-body">
           <p><strong><%= review.title %></strong></p>
