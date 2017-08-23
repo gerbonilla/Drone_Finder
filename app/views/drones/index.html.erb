@@ -1,17 +1,19 @@
 
 <br>
 
-<div class="container">
-  <div class="row">
+<div id="index-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
 
-    <% @drones.each do |d| %>
-      <div class="col-xs-12 col-md-6 col-lg-4">
 
+        <% @drones.each do |d| %>
+        <!-- begin card -->
         <div class="card">
           <% if d.photos.first %>
-            <%= cl_image_tag d.photos.first.path, height: 250, width: 340, crop: :fill %>
+          <%= cl_image_tag d.photos.first.path, height: 200, width: 340, crop: :fill %>
           <% else %>
-            <%= image_tag("http://via.placeholder.com/340x250") %>
+          <%= image_tag("http://via.placeholder.com/340x250") %>
           <% end %>
 
           <div class="card-description">
@@ -20,15 +22,38 @@
           </div>
 
           <%= link_to drone_path(d.id), class: "card-link" do %>
-          Link
           <% end %>
-
-        <!-- end card div -->
         </div>
+        <!-- end card -->
 
-      <!-- end column div -->
+        </div>
+        <div class="col-xs-6">
+        <% end %>
       </div>
-    <% end %>
-
+    </div>
   </div>
+
+  <!-- Google Map -->
+  <div id="map" class="map-style" style="width: 100%; height: 600px;"></div>
+
 </div>
+
+
+<!-- Required for Gmaps -->
+<% content_for(:after_js) do %>
+<%= javascript_tag do %>
+$(document).ready(function() {
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: { id: 'map' } }, function() {
+markers = handler.addMarkers(<%= raw @marker_hash.to_json %>);
+handler.bounds.extendWith(markers);
+handler.fitMapToBounds();
+if (markers.length == 0) {
+handler.getMap().setZoom(2);
+} else if (markers.length == 1) {
+handler.getMap().setZoom(14);
+}
+});
+});
+<% end %>
+<% end %>
