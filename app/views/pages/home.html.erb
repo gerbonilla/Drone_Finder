@@ -1,11 +1,26 @@
 <%= video_tag(["clouds.mp4"], :size => "900x500", :autoplay => true, :loop => true) %>
 
 <div class="vhome-banner">
-  <h1>DRONE FINDER</h1>
-
-  <div class="screen">
-    <h3>Rent a drone near you</h3>
+  <div class="container">
+    <div class="row">
+      <h1>Drone Finder</h1>
+    </div>
+    <div class="row">
+      <div class="screen">
+        <h3>Rent a drone near you</h3>
+      </div>
+    </div>
+    <%= render 'pages/search-form-home' %>
   </div>
-  <%= render 'pages/search-form-home' %>
 </div>
 
+<%= content_for(:after_js) do %>
+<script>
+  $(function() {
+    $('.navbar-wagon').addClass('home-page-navbar');
+    $('.footer').addClass('home-page-navbar');
+    $('.footer-links').addClass('home-page-navbar');
+    $('.footer-wagon-brand').addClass('home-page-navbar');
+  })
+</script>
+<% end %>

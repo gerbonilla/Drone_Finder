@@ -10,6 +10,18 @@
   justify-content: space-between;
 }
 
+.home-page-navbar {
+  background-color: rgba(250,250,250,0) !important;
+  color: white !important;
+  opacity: 0.8 !important;
+  box-shadow: none !important;
+
+  a {
+    color: white !important;
+    opacity: 0.8 !important;
+  }
+}
+
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
