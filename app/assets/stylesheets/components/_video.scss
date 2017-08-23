@@ -11,7 +11,7 @@ video {
 }
 
 .vhome-banner {
-  height: 80vh;
+  height: 75vh;
   text-align: center;
   margin: 0 auto;
 }
@@ -20,19 +20,26 @@ video {
   font-weight: lighter;
   z-index: 2;
   padding: 100px 0px 10px 0px;
-  color: white;
+  color: $drone-finder-color;
   margin: 0px;
 }
 
 .vhome-banner h3 {
-  font-size: 20px;
+  font-size: 31px;
   color: white;
   font-weight: lighter;
   margin: 0px;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
 }
 
 .vhome-banner .screen {
   margin-top: 100px;
   text-align: center;
   padding: 0 0 10px 0px;
+}
+
+button.btn.btn-primary.banner-form-field-input {
+  background-color: $drone-finder-color;
+  border: 3px solid $drone-finder-color;
+  color: white;
 }
