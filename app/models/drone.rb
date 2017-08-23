@@ -1,6 +1,7 @@
 class Drone < ApplicationRecord
   belongs_to :user
   has_many :bookings
+  has_many :reviews, through: :bookings
 
   has_attachments :photos, maximum: 4
   DRONE_CATEGORIES = ["close range", "short range", "mid range", "endurance"]

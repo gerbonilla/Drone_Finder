@@ -4,7 +4,9 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :update]
 
   def show
-    @user_drones = Drone.all.select { |d| d.user_id = @profile}
+    @user_drones = Drone.all.select { |d| d.user_id = current_user.id }
+    @bookings = Booking.all.select { |b| b.user_id = current_user.id }
+    @booking = Booking.find(params[:id])
   end
 
   def update
@@ -24,7 +26,7 @@ private
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :description, :email)
+    params.require(:user).permit(:first_name, :last_name, :description, :email, :photo)
   end
 
 

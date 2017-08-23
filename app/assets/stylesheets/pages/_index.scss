@@ -1,7 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
-
-
+@import "profile";
 #index-wrapper {
   display: flex;
 }
@@ -10,3 +9,6 @@
   display: flex;
   flex: 0 0 400px;
 }
+
+
+

@@ -7,7 +7,9 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_many :drones
-
+  has_many :reviews, through: :bookings
+  # for photo upload to work
+  has_attachment :photo
   # Cut and pasted from Le Wagon slides
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
