@@ -11,6 +11,15 @@ gem 'redis'
 gem 'devise'
 gem 'faker'
 
+# geocoding
+gem 'geocoder'
+gem 'coffee-rails'
+gem 'gmaps4rails'
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
+
 # attachinary set up
 gem 'cloudinary', '1.1.7'
 gem 'attachinary', github: 'assembler/attachinary'
