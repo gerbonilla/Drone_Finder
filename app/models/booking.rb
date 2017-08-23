@@ -10,6 +10,9 @@ class Booking < ApplicationRecord
     available = true
     available = false if (self.start_date >= request_start) && (self.start_date <= request_end)
     available = false if (self.end_date >= request_start) && (self.end_date <= request_end)
+    if !available
+      available = true if (self.status == "pending") || (self.status == "cancelled")
+    end
     return available
   end
 
