@@ -4,7 +4,8 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :update]
 
   def show
-    @user_drones = Drone.all.select { |d| d.user_id = @profile}
+    @user_drones = Drone.all.select { |d| d.user_id = current_user.id }
+    @bookings = Booking.all.select { |b| b.user_id = current_user.id }
   end
 
   def update

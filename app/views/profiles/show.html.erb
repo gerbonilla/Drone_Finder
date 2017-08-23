@@ -9,84 +9,83 @@
 <div class="cssGridWrapper">
   <div class="cssGrid1">
     <% if @profile.photo? %>
-      <%= cl_image_tag @profile.photo.path, height: 200, width: 200, gravity: :face, crop: :fill %>
+    <%= cl_image_tag @profile.photo.path, height: 200, width: 200, gravity: :face, crop: :fill %>
     <% else %>
-      <%= image_tag("http://via.placeholder.com/340x250") %>
+    <%= image_tag("http://via.placeholder.com/340x250") %>
     <% end %>
   </div>
-    <div class="container cssGrid2" id="profileForm1">
-      <div class="row">
-        <div class="col-sm-4 col-sm-offset-6">
-          <table class="table table-hover">
-            <tbody>
-              <tr>
-                <th scope="row"></th>
-                <td>
-                  <% if @profile.first_name %>
-                    <%= @profile.first_name %>
-                  <% else %>
-                    <p>No first name</p>
-                  <% end %>
-                </td>
-                <td>
-                  <%= link_to 'edit', "#", id: "editProfile", class: "link-btn-sm" %>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <td>
-                  <% if @profile.last_name != nil %>
-                    <%= @profile.last_name %>
-                  <% else %>
-                    <p>No last name</p>
-                  <% end %>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <td colspan="2">
-                  <% if @profile.description != nil %>
-                    <%= @profile.description %>
-                  <% else %>
-                    <p>No description</p>
-                  <% end %>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <td colspan="2">
-                  <%= @profile.email %>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+  <div class="container cssGrid2" id="profileForm1">
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-6">
+        <table class="table table-hover">
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td>
+                <% if @profile.first_name %>
+                <%= @profile.first_name %>
+                <% else %>
+                <p>No first name</p>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to 'edit', "#", id: "editProfile", class: "link-btn-sm" %>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>
+                <% if @profile.last_name != nil %>
+                <%= @profile.last_name %>
+                <% else %>
+                <p>No last name</p>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td colspan="2">
+                <% if @profile.description != nil %>
+                <%= @profile.description %>
+                <% else %>
+                <p>No description</p>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td colspan="2">
+                <%= @profile.email %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+    </div>
   </div>
 
-<div class="container cssGrid3" id="profileForm2">
-  <div class="row">
-    <div class="col-sm-4 col-sm-offset-6">
-      <%= simple_form_for(@profile, url: profile_path(@profile), method: :patch, html: { class: "form-group"}) do |f| %>
+
+  <div class="container cssGrid3" id="profileForm2">
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-6">
+        <%= simple_form_for(@profile, url: profile_path(@profile), method: :patch, html: { class: "form-group"}) do |f| %>
         <%= f.input :first_name, label: false, placeholder: "First name" %>
         <%= f.input :last_name, label: false, placeholder: "Last name" %>
         <%= f.input :description, label: false, placeholder: "Tell us about yourselfe" %>
         <%= f.input :email, label: false, placeholder: "example@gmail.com" %>
         <%= f.input :photo, as: :attachinary %>
         <%= f.button :submit, class: "btn", id: "update-profile" %>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 
 </div>
 
 
 
 
-
-
-
+<%= render '/profiles/booking-table' %>
 
 
 
@@ -116,6 +115,8 @@
     <% end %>
   </div>
 </div>
+
+
 
 
 
