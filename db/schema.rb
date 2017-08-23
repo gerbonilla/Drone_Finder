@@ -49,11 +49,10 @@ ActiveRecord::Schema.define(version: 20170822102025) do
     t.string   "description"
     t.integer  "rate"
     t.string   "address"
-    t.string   "lat"
-    t.string   "lng"
+    t.float    "lat"
+    t.float    "lng"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "photo"
     t.string   "category"
     t.integer  "max_alt"
     t.integer  "range"
