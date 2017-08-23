@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
 
   resources :drones do
-    resources :bookings, only: [ :create ]
+    resources :bookings, only: [ :create, :update ]
   end
 
   devise_for :users,
