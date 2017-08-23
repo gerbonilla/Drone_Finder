@@ -5,7 +5,7 @@
     <div class="col-sm-4 col-sm-offset-1">
       <table class="table table-hover">
         <% @bookings.each do |booking| %>
-          <% if booking.status = "pending" %>
+          <% if booking.status == "pending" %>
             <thead>
               <tr>
                 <th>*Drone Name*</th>

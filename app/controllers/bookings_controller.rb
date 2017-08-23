@@ -15,13 +15,20 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     @booking.drone_id = params[:drone_id]
-    @booking.status = "pending"
     @booking.original_rate = @booking.total_amount(@booking.start_date, @booking.end_date, @drone.rate)
-    if @booking.save
-      flash[:notice] = "your request has been sent!"
+    if @booking.user_id = @drone.user_id
+      @booking.status = "personal"
+      @booking.save
+      flash[:notice] = "you reserved your own drone!"
       redirect_to drone_path(@booking.drone_id)
     else
-      render :new
+      @booking.status = "pending"
+      if @booking.save
+        flash[:notice] = "your request has been sent!"
+        redirect_to drone_path(@booking.drone_id)
+      else
+        render :new
+      end
     end
   end
 
@@ -33,11 +40,6 @@ class BookingsController < ApplicationController
     when "cancelled" then @booking.decline
     end
     redirect_to profile_path(current_user.id)
-  end
-
-  def destroy
-    @booking = Booking.find(params[:id])
-    @booking.destroy
   end
 
 private
