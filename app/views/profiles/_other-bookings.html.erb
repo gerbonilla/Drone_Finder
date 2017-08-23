@@ -1,11 +1,9 @@
-
-
- <div class="container">
+<div class="container">
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-1">
+    <div class="col-sm-10">
       <table class="table table-hover">
         <% @bookings.each do |booking| %>
-          <% if booking.status == "pending" %>
+          <% if booking.status == "confirmed" %>
             <thead>
               <tr>
                 <th>drone</th>
@@ -16,7 +14,7 @@
                 <th class="row">status:
                   <td>
                     <div class="btn-group">
-                      <button class="btn btn-danger btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= booking.status %>
+                      <button class="btn btn-success btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= booking.status %>
 
                       </button>
                       <div class="dropdown-menu">
@@ -46,6 +44,3 @@
     </div>
   </div>
 </div>
-
-
-

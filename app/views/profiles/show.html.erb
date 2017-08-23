@@ -1,70 +1,65 @@
-<h4 class="text-center"><%= @profile.first_name %> <%= @profile.last_name %> </h4>
+<h4 class="text-center" id="name-header"><%= @profile.first_name %> <%= @profile.last_name %> </h4>
 
 
 
+<div class="container">
+  <div class="row">
 
-<div class="cssGridWrapper">
-  <div class="cssGrid1">
-    <% if @profile.photo? %>
-    <%= cl_image_tag @profile.photo.path, height: 200, width: 200, gravity: :face, crop: :fill %>
-    <% else %>
-    <%= image_tag("http://via.placeholder.com/340x250") %>
-    <% end %>
-  </div>
-  <div class="container cssGrid2" id="profileForm1">
-    <div class="row">
-      <div class="col-sm-4 col-sm-offset-6">
-        <table class="table table-hover">
-          <tbody>
-            <tr>
-              <th scope="row"></th>
-              <td>
-                <% if @profile.first_name %>
-                <%= @profile.first_name %>
-                <% else %>
-                <p>No first name</p>
-                <% end %>
-              </td>
-              <td>
-                <%= link_to 'edit', "#", id: "editProfile", class: "link-btn-sm" %>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row"></th>
-              <td>
-                <% if @profile.last_name != nil %>
-                <%= @profile.last_name %>
-                <% else %>
-                <p>No last name</p>
-                <% end %>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row"></th>
-              <td colspan="2">
-                <% if @profile.description != nil %>
-                <%= @profile.description %>
-                <% else %>
-                <p>No description</p>
-                <% end %>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row"></th>
-              <td colspan="2">
-                <%= @profile.email %>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="col col-xs-6" id="profile-pic">
+      <% if @profile.photo? %>
+      <%= cl_image_tag @profile.photo.path, height: 200, width: 200, gravity: :face, crop: :fill %>
+      <% else %>
+      <%= image_tag("http://via.placeholder.com/340x250") %>
+      <% end %>
     </div>
-  </div>
+
+    <div class="col col-xs-6">
+      <table class="table table-hover" id="profileForm1">
+        <tbody>
+          <tr>
+            <th scope="row"></th>
+            <td>
+              <% if @profile.first_name %>
+              <%= @profile.first_name %>
+              <% else %>
+              <p>No first name</p>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to 'edit', "#", id: "editProfile", class: "link-btn-sm" %>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>
+              <% if @profile.last_name != nil %>
+              <%= @profile.last_name %>
+              <% else %>
+              <p>No last name</p>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td colspan="2">
+              <% if @profile.description != nil %>
+              <%= @profile.description %>
+              <% else %>
+              <p>No description</p>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td colspan="2">
+              <%= @profile.email %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
 
-  <div class="container cssGrid3" id="profileForm2">
-    <div class="row">
-      <div class="col-sm-4 col-sm-offset-6">
+      <div id="profileForm2">
         <%= simple_form_for(@profile, url: profile_path(@profile), method: :patch, html: { class: "form-group"}) do |f| %>
         <%= f.input :first_name, label: false, placeholder: "First name" %>
         <%= f.input :last_name, label: false, placeholder: "Last name" %>
@@ -74,9 +69,9 @@
         <%= f.button :submit, class: "btn", id: "update-profile" %>
         <% end %>
       </div>
+
     </div>
   </div>
-
 </div>
 
 
@@ -86,6 +81,19 @@
 
 
 
+
+<div class="drones-wrapper">
+  <div class="header-container-drone-samples">
+    <div id="title-column">
+      <h3>Your Bookings</h3>
+    </div>
+  </div>
+  <div class="scrolling-wrapper">
+    <div class="card-left-scroll">
+      <%= render 'profiles/other-bookings' %>
+    </div>
+  </div>
+</div>
 
 <div class="drones-wrapper">
   <div class="header-container-drone-samples">
