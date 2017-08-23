@@ -14,7 +14,7 @@ class DronesController < ApplicationController
       start_date = date_formatting(params[:start])
       end_date = date_formatting(params[:end])
       @drones = Drone.all.select { |d| d.available?(start_date, end_date) }
-      @drones = @drones.where.not(latitude: nil, longitude: nil)
+      # @drones = @drones.where.not(latitude: nil, longitude: nil)
 
       @marker_hash = Gmaps4rails.build_markers(@drones) do |drone, marker|
         marker.lat drone.latitude
