@@ -32,6 +32,7 @@ class BookingsController < ApplicationController
     when "declined" then @booking.decline
     when "cancelled" then @booking.decline
     end
+    redirect_to profile_path(current_user.id)
   end
 
   def destroy

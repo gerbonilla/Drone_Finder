@@ -26,7 +26,7 @@ class Drone < ApplicationRecord
     average = average / reviews.length unless reviews.length.zero?
     return average
   end
-
+  
   # validates :category, :inclusion=> { :in => DRONE_CATEGORIES }
   # validates :max_alt, :inclusion=> { :in => DRONE_MAX_ALT }
   # validates :range, :inclusion=> { :in => DRONE_RANGE }
