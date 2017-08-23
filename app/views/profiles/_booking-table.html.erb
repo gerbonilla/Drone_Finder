@@ -1,36 +1,50 @@
 
 
-
-<div class="container">
+ <div class="container">
   <div class="row">
     <div class="col-sm-4 col-sm-offset-1">
       <table class="table table-hover">
-      <% @bookings.each do |booking| %>
-        <thead>
-          <tr>
-            <th>*Drone Name*</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th class="row">status:
-              <td><%= booking.status %></td>
-            </th>
-          </tr>
-          <tr>
-            <th class="row">Date:
-              <td><%= booking.start_date %></td>
-            </th>
-          </tr>
-          <tr>
-            <th class="row">Price:
-              <td class="row"><%= booking.original_rate %>€</td>
-            </th>
-          </tr>
+        <% @bookings.each do |booking| %>
+          <% if booking.status = "pending" %>
+            <thead>
+              <tr>
+                <th>*Drone Name*</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class="row">status:
+                  <td>
+                    <div class="btn-group">
+                      <button class="btn btn-danger btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pending
+
+                      </button>
+                      <div class="dropdown-menu">
+                        <%= link_to "confirm", booking_path(@booking), name: "status", method: :patch %>
+                        <%= link_to "cancel", booking_path(@booking), name: "status", method: :patch %>
+                        <div class="dropdown-divider"></div>
+                      </div>
+                    </div>
+                  </td>
+                </th>
+              </tr>
+              <tr>
+                <th class="row">Date:
+                  <td><%= booking.start_date %></td>
+                </th>
+              </tr>
+              <tr>
+                <th class="row">Price:
+                  <td class="row"><%= booking.original_rate %>€</td>
+                </th>
+              </tr>
+            </tbody>
           <% end %>
-        </tbody>
+        <% end %>
       </table>
     </div>
   </div>
 </div>
+
+
 
