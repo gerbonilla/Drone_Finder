@@ -32,151 +32,146 @@
   </div> <!-- Carousel -->
 
   <% else %>
-    <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://dronewarsuk.files.wordpress.com/2010/06/predator-firing-missile4.jpg');">
-      <% end %>
-    </div>
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://dronewarsuk.files.wordpress.com/2010/06/predator-firing-missile4.jpg');">
+    <% end %>
+  </div>
 
+  <!-- drone information -->
+  <div class="wrapper">
+    <div class="container drone-container">
 
-
-    <div class="wrapper">
-      <div class="container drone-container">
-
-        <div class="col-sm-8">
-          <div class="row drone-details">
-            <div class="drone-description">
-              <div class="col-sm-3 drone-infos">
-                <p><strong><%= @drone.title %></strong></p>
-                <p><%= @drone.address  %></p>
-              </div>
-              <div class="col-sm-3 drone-infos">
-                <p><strong>Rate</strong></p>
-                <p class="price"><span id="price"><%= @drone.rate %></span>€</p>
-              </div>
-              <div class="col-sm-3">
-                <img class="img-circle" id="img-owner" src="https://kitt.lewagon.com/placeholder/users/random">
-                <p>Username<i class="fa fa-star"></i></p>
-              </div>
-              <div class="col-sm-4 drone-infos">
-                <h3>About this drone:</h3>
-                <p><%= @drone.description  %></p>
-              </div>
-
+      <div class="col-sm-8">
+        <div class="row drone-details">
+          <div class="drone-description">
+            <div class="col-sm-3 drone-infos">
+              <p><strong><%= @drone.title %></strong></p>
+              <p><%= @drone.address  %></p>
             </div>
-          </div>
-        </div>
-
-
-
-
-        <div class="row">
-          <div class="col-sm-3">
-            <h2>Book this drone for <%= @drone.rate  %>€ a day!</h2>
-            <%= simple_form_for [@drone, @booking] do |f| %>
-            <%= f.input :start_date, as: :date %>
-            <%= f.input :end_date, as: :date %>
-            <%= @number_of_days %>
-            <h3>total amount: <span id="total_amount">0</span> </h3>
-            <%= f.submit "request booking", class: "btn btn-primary" %>
-            <% end %>
-          </div>
-        </div>
-
-
-
-
-
-        <div class="row drone-header"><h3>Features:</h3></div>
-
-        <div class="row features-list">
-          <div class="col-sm-3">
-            <div class="icons-list">
-              <%= image_tag "drone.png" %>
-              <p>mid range</p>
+            <div class="col-sm-3 drone-infos">
+              <p><strong>Rate</strong></p>
+              <p class="price"><span id="price"><%= @drone.rate %></span>€</p>
             </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="icons-list">
-              <%= image_tag "altitude.png" %>
-              <p>500 m</p>
+            <div class="col-sm-3">
+              <img class="img-circle" id="img-owner" src="https://kitt.lewagon.com/placeholder/users/random">
+              <p>Username<i class="fa fa-star"></i></p>
             </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="icons-list">
-              <%= image_tag "range.png" %>
-              <p>5km</p>
+            <div class="col-sm-4 drone-infos">
+              <h3>About this drone:</h3>
+              <p><%= @drone.description  %></p>
             </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="icons-list">
-              <%= image_tag "battery.png" %>
-              <p>30 min</p>
-            </div>
+
           </div>
         </div>
-
-        <div class="row drone-header"><h3>Reviews:</h3></div>
-
-        <div class="message">
-          <img class="avatar-large img-circle" src="https://kitt.lewagon.com/placeholder/users/random">
-          <div class="message-name">
-            <h3>Gab Dehan</h3>
-            <p>10/07/17</p>
-          </div>
-          <div class="message-body">
-            <p><strong>I loved it!</strong></p>
-            <p>
-              Great drone, cool guy! I would definetely do it again!
-            </p>
-          </div>
-          <div class="message-status">
-            <p>Rating</p>
-            <i class="fa fa-star"></i>
-          </div>
-        </div>
-
-        <div class="message">
-          <img class="avatar-large img-circle" src="https://kitt.lewagon.com/placeholder/users/random">
-          <div class="message-name">
-            <h3>Gab Dehan</h3>
-            <p>10/07/17</p>
-          </div>
-          <div class="message-body">
-            <p><strong>This drone rocks!</strong></p>
-            <p>
-              I had so much fun.. I wanna buy my own drone now!!
-            </p>
-          </div>
-          <div class="message-status">
-            <p>Rating</p>
-            <i class="fa fa-star"></i>
-          </div>
-        </div>
-
-
-
-
-        <div class="message">
-          <img class="avatar-large img-circle" src="https://kitt.lewagon.com/placeholder/users/random">
-          <div class="message-name">
-            <h3>Gab Dehan</h3>
-            <p>10/07/17</p>
-          </div>
-          <div class="message-body">
-            <p><strong>OMG!</strong></p>
-            <p>
-              You can't buy happiness, but you can rent a drone!
-            </p>
-          </div>
-          <div class="message-status">
-            <p>Rating</p>
-            <i class="fa fa-star"></i>
-          </div>
-        </div>
-
       </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
+      <!-- Book this drone -->
+      <div class="row">
+        <div class="col-sm-3">
+          <h2>Book this drone for <%= @drone.rate  %>€ a day!</h2>
+          <%= simple_form_for [@drone, @booking] do |f| %>
+          <%= f.input :start_date, as: :date %>
+          <%= f.input :end_date, as: :date %>
+          <%= @number_of_days %>
+          <h3>total amount: <span id="total_amount">0</span> </h3>
+          <%= f.submit "request booking", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <div class="row drone-header"><h3>Features:</h3></div>
+
+      <div class="row features-list">
+        <div class="col-sm-3">
+          <div class="icons-list">
+            <%= image_tag "drone.png" %>
+            <p>mid range</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="icons-list">
+            <%= image_tag "altitude.png" %>
+            <p>500 m</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="icons-list">
+            <%= image_tag "range.png" %>
+            <p>5km</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="icons-list">
+            <%= image_tag "battery.png" %>
+            <p>30 min</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reviews -->
+      <div class="row drone-header"><h3>Reviews:</h3></div>
+
+      <div class="message">
+        <img class="avatar-large img-circle" src="https://kitt.lewagon.com/placeholder/users/random">
+        <div class="message-name">
+          <h3>Gab Dehan</h3>
+          <p>10/07/17</p>
+        </div>
+        <div class="message-body">
+          <p><strong>I loved it!</strong></p>
+          <p>
+            Great drone, cool guy! I would definetely do it again!
+          </p>
+        </div>
+        <div class="message-status">
+          <p>Rating</p>
+          <i class="fa fa-star"></i>
+        </div>
+      </div>
+
+      <div class="message">
+        <img class="avatar-large img-circle" src="https://kitt.lewagon.com/placeholder/users/random">
+        <div class="message-name">
+          <h3>Gab Dehan</h3>
+          <p>10/07/17</p>
+        </div>
+        <div class="message-body">
+          <p><strong>This drone rocks!</strong></p>
+          <p>
+            I had so much fun.. I wanna buy my own drone now!!
+          </p>
+        </div>
+        <div class="message-status">
+          <p>Rating</p>
+          <i class="fa fa-star"></i>
+        </div>
+      </div>
+
+
+
+
+      <div class="message">
+        <img class="avatar-large img-circle" src="https://kitt.lewagon.com/placeholder/users/random">
+        <div class="message-name">
+          <h3>Gab Dehan</h3>
+          <p>10/07/17</p>
+        </div>
+        <div class="message-body">
+          <p><strong>OMG!</strong></p>
+          <p>
+            You can't buy happiness, but you can rent a drone!
+          </p>
+        </div>
+        <div class="message-status">
+          <p>Rating</p>
+          <i class="fa fa-star"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
