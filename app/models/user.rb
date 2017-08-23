@@ -31,4 +31,14 @@ class User < ApplicationRecord
 
     return user
   end
+
+  def average_rating
+    reviews = self.reviews.where(type: "DroneReview")
+    average = 0
+    reviews.each do |review|
+      average += review.rating
+    end
+    average = average / reviews.length unless reviews.length.zero?
+    return average
+  end
 end
