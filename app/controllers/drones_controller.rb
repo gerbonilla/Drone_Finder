@@ -30,6 +30,7 @@ class DronesController < ApplicationController
   def show
     @drone = Drone.find(params[:id])
     @booking = Booking.new()
+    @reviews = @drone.reviews.where(type: "DroneReview")
   end
 
   def new
