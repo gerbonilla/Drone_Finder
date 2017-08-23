@@ -4,22 +4,24 @@ class DronesController < ApplicationController
   def index
     if params[:start].blank? || params[:end].blank?
       @drones = Drone.where.not(latitude: nil, longitude: nil)
+
       @marker_hash = Gmaps4rails.build_markers(@drones) do |drone, marker|
         marker.lat drone.latitude
         marker.lng drone.longitude
-        marker.infowindow render_to_string(partial: "/drones/map_box", locals: { drone: drone })
+        # marker.infowindow render_to_string(partial: "/drones/map_box", locals: { drone: drone })
       end
 
     else
       start_date = date_formatting(params[:start])
       end_date = date_formatting(params[:end])
       @drones = Drone.all.select { |d| d.available?(start_date, end_date) }
+
       @drones = @drones.where.not(latitude: nil, longitude: nil)
 
       @marker_hash = Gmaps4rails.build_markers(@drones) do |drone, marker|
         marker.lat drone.latitude
         marker.lng drone.longitude
-        marker.infowindow render_to_string(partial: "/drones/map_box", locals: { drone: drone })
+        # marker.infowindow render_to_string(partial: "/drones/map_box", locals: { drone: drone })
       end
     end
   end
