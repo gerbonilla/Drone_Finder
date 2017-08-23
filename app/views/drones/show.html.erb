@@ -111,62 +111,31 @@
       <!-- Reviews -->
       <div class="row drone-header"><h3>Reviews:</h3></div>
 
+      <% @reviews.each do |review| %>
       <div class="message">
         <img class="avatar-large img-circle" src="https://kitt.lewagon.com/placeholder/users/random">
         <div class="message-name">
-          <h3>Gab Dehan</h3>
-          <p>10/07/17</p>
+          <h3><%= review.booking.user.first_name %></h3>
+          <p><%= review.created_at %></p>
         </div>
         <div class="message-body">
-          <p><strong>I loved it!</strong></p>
+          <p><strong><%= review.title %></strong></p>
           <p>
-            Great drone, cool guy! I would definetely do it again!
+            <%= review.content %>
           </p>
         </div>
         <div class="message-status">
           <p>Rating</p>
-          <i class="fa fa-star"></i>
+          <% review.rating.times do %>
+            <i class="fa fa-star"></i>
+          <% end %>
         </div>
+
       </div>
-
-      <div class="message">
-        <img class="avatar-large img-circle" src="https://kitt.lewagon.com/placeholder/users/random">
-        <div class="message-name">
-          <h3>Gab Dehan</h3>
-          <p>10/07/17</p>
-        </div>
-        <div class="message-body">
-          <p><strong>This drone rocks!</strong></p>
-          <p>
-            I had so much fun.. I wanna buy my own drone now!!
-          </p>
-        </div>
-        <div class="message-status">
-          <p>Rating</p>
-          <i class="fa fa-star"></i>
-        </div>
-      </div>
+      <% end %>
 
 
 
-
-      <div class="message">
-        <img class="avatar-large img-circle" src="https://kitt.lewagon.com/placeholder/users/random">
-        <div class="message-name">
-          <h3>Gab Dehan</h3>
-          <p>10/07/17</p>
-        </div>
-        <div class="message-body">
-          <p><strong>OMG!</strong></p>
-          <p>
-            You can't buy happiness, but you can rent a drone!
-          </p>
-        </div>
-        <div class="message-status">
-          <p>Rating</p>
-          <i class="fa fa-star"></i>
-        </div>
-      </div>
 
     </div>
 
