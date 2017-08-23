@@ -13,9 +13,20 @@ class Booking < ApplicationRecord
     return available
   end
 
-  # def total_amount
-  #   @number_of_days = (end_date.to_time.to_i - start_date.to_time.to_i)/86400
-  #   @total_amount = @number_of_days * @drone.rate
-  # end
+  def total_amount(start_date, end_date, drone_rate)
+    @number_of_days = (end_date.to_time.to_i - start_date.to_time.to_i)/86400
+    @total_amount = @number_of_days * drone_rate
+  end
 
+  def confirm
+    self.status = "confirmed"
+  end
+
+  def decline
+    self.status = "cancelled"
+  end
+
+  def personal
+    self.status = "personal"
+  end
 end
