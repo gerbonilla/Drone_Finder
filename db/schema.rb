@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20170822102025) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,17 +49,28 @@ ActiveRecord::Schema.define(version: 20170822102025) do
     t.string   "description"
     t.integer  "rate"
     t.string   "address"
-    t.string   "lat"
-    t.string   "lng"
+
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "photo"
     t.string   "category"
     t.integer  "max_alt"
     t.integer  "range"
     t.integer  "battery_life"
     t.string   "photos",                    array: true
     t.index ["user_id"], name: "index_drones_on_user_id", using: :btree
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "booking_id"
+    t.integer  "rating"
+    t.string   "title"
+    t.text     "content"
+    t.string   "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -93,4 +102,5 @@ ActiveRecord::Schema.define(version: 20170822102025) do
   add_foreign_key "bookings", "drones"
   add_foreign_key "bookings", "users"
   add_foreign_key "drones", "users"
+  add_foreign_key "reviews", "bookings"
 end

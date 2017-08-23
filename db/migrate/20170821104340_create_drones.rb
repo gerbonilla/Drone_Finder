@@ -6,8 +6,8 @@ class CreateDrones < ActiveRecord::Migration[5.0]
       t.string :description
       t.integer :rate
       t.string :address
-      t.string :lat
-      t.string :lng
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end

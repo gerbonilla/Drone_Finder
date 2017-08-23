@@ -3,7 +3,6 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @bookings = Booking.all
   end
 
   def new
@@ -12,14 +11,12 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @drone = Drone.find(params[:drone_id])
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     @booking.drone_id = params[:drone_id]
     @booking.status = "pending"
-
-    # has to be defined in booking model
-    # @booking.original_rate = @booking.total_amount
-
+    @booking.original_rate = @booking.total_amount(@booking.start_date, @booking.end_date, @drone.rate)
     if @booking.save
       flash[:notice] = "your request has been sent!"
       redirect_to drone_path(@booking.drone_id)
@@ -28,10 +25,20 @@ class BookingsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @booking = Booking.find(params[:id])
-  #   @booking.destroy
-  # end
+  def update
+    @booking = Booking.find(params[:id])
+    case params[:status]
+    when "confirmed" then @booking.confirm
+    when "declined" then @booking.decline
+    when "cancelled" then @booking.decline
+    end
+    redirect_to profile_path(current_user.id)
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+  end
 
 private
   def booking_params

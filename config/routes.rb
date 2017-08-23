@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:show, :update]
 
+  resources :bookings, only: [ :update ]
 
   resources :drones do
     resources :bookings, only: [ :create ]
