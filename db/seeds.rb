@@ -28,8 +28,8 @@ sample_users.each do |user|
       description: Faker::Superhero.power,
       rate: rand(10..200),
       # address: Faker::Address.street_address,
-      latitude: rand(10000.100000).round(5)/1000,
-      longitude: rand(10000.100000).round(5)/1000,
+      latitude: rand(1000..10000).round(4)/10000+52,
+      longitude: rand(1000..10000).round(4)/10000+13,
       category: "endurance",
       max_alt: 500, range: 150, battery_life: 60)
     new_drone.save!
