@@ -1,0 +1,36 @@
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-1">
+      <table class="table table-hover">
+      <% @bookings.each do |booking| %>
+        <thead>
+          <tr>
+            <th>*Drone Name*</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="row">status:
+              <td><%= booking.status %></td>
+            </th>
+          </tr>
+          <tr>
+            <th class="row">Date:
+              <td><%= booking.start_date %></td>
+            </th>
+          </tr>
+          <tr>
+            <th class="row">Price:
+              <td class="row"><%= booking.original_rate %>€</td>
+            </th>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

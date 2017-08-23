@@ -34,6 +34,11 @@ Booking.create(user: stewie, drone_id: 1, status: "confirmed", start_date: Date.
 Booking.create(user: peter, drone_id: 5, status: "pending", start_date: Date.new(2017, 8, 25), end_date: Date.new(2017, 9, 16))
 Booking.create(user: peter, drone_id: 8, status: "rejected", start_date: Date.new(2017, 12, 25), end_date: Date.new(2017, 12, 27))
 Booking.create(user: meg, drone_id: 2, status: "pending", start_date: Date.new(2017, 11, 10), end_date: Date.new(2017, 11, 12))
-Booking.create(user: meg, drone_id: 5, status: "confirmed", start_date: Date.new(2017, 8, 26), end_date: Date.new(2017, 8, 30))
+Booking.create(user: meg, drone_id: 2, status: "confirmed", start_date: Date.new(2017, 8, 26), end_date: Date.new(2017, 8, 30))
 
 
+#create reviews for bookings
+Booking.all.each do |booking|
+  DroneReview.create(booking: booking, rating: rand(1..5), title: Faker::FamilyGuy.quote, content: Faker::HitchhikersGuideToTheGalaxy.quote)
+  UserReview.create(booking: booking, rating: rand(1..5), title: Faker::FamilyGuy.quote, content: Faker::HitchhikersGuideToTheGalaxy.quote)
+end
