@@ -12,6 +12,7 @@
         </td>
         <td><p class="content"><%= booking.message %></p></td>
         <td id="userBookingStatus">
+
           <% if booking.status == "pending" %>
           <div class="btn-group">
             <p class="btn-xs btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-html="true"><%= booking.status.capitalize %></p>

@@ -30,6 +30,15 @@
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
+    a {
+      text-decoration: none;
+    }
+    p {
+      color: rgba(0,0,0,0.6);
+    }
+    h3 {
+      color: $drone-finder-color;
+    }
   }
 }
 
