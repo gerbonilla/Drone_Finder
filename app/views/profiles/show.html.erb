@@ -104,6 +104,11 @@
 </div>
 
 
+<% if @profile.first_name %>
+  <% content_for(:title_tag) do %>
+    Welcome <%= @profile.first_name %>
+  <% end %>
+<% end %>
 
 
 

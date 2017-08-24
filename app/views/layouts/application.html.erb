@@ -4,7 +4,7 @@
   <%= favicon_link_tag(source='favicon.png') %>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Drone Finder</title>
+  <title><%= yield(:title_tag).blank? ? "Drone Finder" : yield(:title_tag) %></title>
 
   <%= csrf_meta_tags %>
   <%= action_cable_meta_tag %>
