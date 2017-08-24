@@ -3,49 +3,56 @@
   <tbody>
     <tr>
       <th class="row"></th>
-      <td><%= booking.drone.photos.first %></td>
-      <td>
-        <p class="header"><%= booking.drone.title %></p>
-        <p class="content"><%= booking.start_date %></p>
-      </td>
-      <td><p class="content">Hello, I really like your drone. It would be absolutly terrific if I could rent it for the weekend</p></td>
-      <td>
-        <% if booking.status == "pending" %>
-        <div class="btn-group">
-          <p class="btn-xs btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-html="true"><%= booking.status.capitalize %></p>
-          <div class="dropdown-menu">
-            <%= button_to "confirmed", booking_path(booking), name: "status", method: :patch, class: "dropdown-item" %>
-            <%= button_to "declined", booking_path(booking), name: "status", method: :patch, class: "dropdown-item" %>
-            <%= button_to "cancelled", booking_path(booking), name: "status", method: :patch, class: "dropdown-item" %>
+        <% if booking.drone.photos %>
+          <td><%= cl_image_tag booking.drone.photos.first.path, width: 70, height: 70, crop: :fill, class: "img-circle" %></td>
+        <% end %>
+        <td>
+          <p class="header"><%= booking.drone.title %></p>
+          <p class="content"><%= booking.start_date %></p>
+        </td>
+        <td><p class="content">Hello, I really like your drone. It would be absolutly terrific if I could rent it for the weekend</p></td>
+        <td>
+          <% if booking.status == "pending" %>
+          <div class="btn-group">
+            <p class="btn-xs btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-html="true"><%= booking.status.capitalize %></p>
+            <div class="dropdown-menu">
+              <%= button_to "confirmed", booking_path(booking), name: "status", method: :patch, class: "dropdown-item" %>
+              <%= button_to "declined", booking_path(booking), name: "status", method: :patch, class: "dropdown-item" %>
+              <%= button_to "completed", booking_path(booking), name: "status", method: :patch, class: "dropdown-item" %>
+            </div>
           </div>
-        </div>
-        <p><%= booking.original_rate %>€</p>
-        <% elsif booking.status == "confirmed" %>
-        <div class="btn-group">
-          <p class="btn-xs btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-html="true"><%= booking.status.capitalize %></p>
-          <div class="dropdown-menu">
-            <%= button_to "declined", booking_path(booking), name: "status", method: :patch, class: "dropdown-item" %>
-            <%= button_to "cancelled", booking_path(booking), name: "status", method: :patch, class: "dropdown-item" %>
+          <p><%= booking.original_rate %>€</p>
+          <% elsif booking.status == "confirmed" %>
+          <div class="btn-group">
+            <p class="btn-xs btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-html="true"><%= booking.status.capitalize %></p>
+            <div class="dropdown-menu">
+              <%= button_to "declined", booking_path(booking), name: "status", method: :patch, class: "dropdown-item" %>
+              <%= button_to "completed", booking_path(booking), name: "status", method: :patch, class: "dropdown-item" %>
+            </div>
           </div>
-        </div>
-        <p><%= booking.original_rate %>€</p>
-        <% elsif booking.status == "declined" %>
-        <div class="btn-group">
-          <p class="btn-xs btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-html="true"><%= booking.status.capitalize %></p>
-          <div class="dropdown-menu">
-            <%= button_to "confirmed", booking_path(booking), name: "status", method: :patch, class: "dropdown-item" %>
-            <%= button_to "cancelled", booking_path(booking), name: "status", method: :patch, class: "dropdown-item" %>
+          <p><%= booking.original_rate %>€</p>
+          <% elsif booking.status == "declined" %>
+          <div class="btn-group">
+            <p class="btn-xs btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-html="true"><%= booking.status.capitalize %></p>
+            <div class="dropdown-menu">
+              <%= button_to "confirmed", booking_path(booking), name: "status", method: :patch, class: "dropdown-item" %>
+              <%= button_to "completed", booking_path(booking), name: "status", method: :patch, class: "dropdown-item" %>
+            </div>
           </div>
-        </div>
-        <p><%= booking.original_rate %>€</p>
-        <% elsif booking.status == "cancelled" %>
-        <div class="btn-group">
-          <p class="btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-html="true"><%= booking.status.capitalize %></p>
-          <div class="dropdown-menu">
-            <%= button_to "confirmed", booking_path(booking), name: "status", method: :patch, class: "dropdown-item" %>
+          <p><%= booking.original_rate %>€</p>
+          <% elsif booking.status == "completed" %>
+          <div class="btn-group">
+            <p class="btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-html="true"><%= booking.status.capitalize %></p>
+            <div class="dropdown-menu">
+              <%= button_to "confirmed", booking_path(booking), name: "status", method: :patch, class: "dropdown-item" %>
+            </div>
           </div>
-        </div>
-        <p><%= booking.original_rate %>€</p>
+          <p><%= booking.original_rate %>€</p>
+            <% elsif booking.status == "personal" %>
+          <div class="btn-group">
+            <p class="btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-html="true"><%= booking.status.capitalize %></p>
+          </div>
+          <p><%= booking.original_rate %>€</p>
         <% end %>
       </td>
     </tr>

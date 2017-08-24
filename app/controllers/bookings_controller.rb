@@ -37,7 +37,7 @@ class BookingsController < ApplicationController
     case params[:status]
     when "confirmed" then @booking.confirm
     when "declined" then @booking.decline
-    when "cancelled" then @booking.decline
+    when "completed" then @booking.complete
     end
     @booking.save
     redirect_to profile_path(current_user.id)
@@ -45,6 +45,6 @@ class BookingsController < ApplicationController
 
 private
   def booking_params
-    params.require(:booking).permit(:user_id, :drone_id, :start_date, :end_date, :original_rate, :status)
+    params.require(:booking).permit(:user_id, :drone_id, :start_date, :end_date, :original_rate, :status, :message)
   end
 end

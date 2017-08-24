@@ -3,7 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :drone
   has_many :reviews
 
-  status = ["pending", "confirmed", "cancelled", "personal"]
+  status = ["pending", "confirmed", "completed", "personal", "declined"]
   validates :status, :inclusion=> { :in => status }
 
   def available?(request_start, request_end)
@@ -26,10 +26,14 @@ class Booking < ApplicationRecord
   end
 
   def decline
-    self.status = "cancelled"
+    self.status = "declined"
   end
 
   def personal
     self.status = "personal"
+  end
+
+  def complete
+    self.status = "completed"
   end
 end
