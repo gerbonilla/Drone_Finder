@@ -85,6 +85,14 @@ a_address = ["Friedrichstraße 207, Berlin",
                 "Schwedenstraße 20, 13359 Berlin",
                 "Linienstraße 180, 10115 Berlin",
                 "Hauptstraße 211, 10827 Berlin",
+                "Mitte, Berlin",
+                "Friedrichsein, Berlin",
+                "Torstraße 125, 10119 Berlin",
+                "Rosenthaler Str. 43-45, 10178 Berlin",
+                "Marzan, Berlin",
+                "Mehringdamm 32, 10961 Berlin",
+                "Greifswalder Str. 32, 10405 Berlin",
+                "Wilmersdorf, Berlin",
                 "Hermannstraße 321, 12051 Berlin",
                 "Wilmersdorfer Str. 53/54, 10627 Berlin",
                 "Wittenbergpl. 4, 10789 Berlin",
@@ -110,7 +118,7 @@ puts "Creating some drones for each user..."
 
 # create some drones per user
 sample_users.each do |user|
-  num_drones.sample.times do
+  rand(2..7).times do
     new_drone = Drone.new(user: user,
       title:Faker::Superhero.name,
       description: Faker::Superhero.power,

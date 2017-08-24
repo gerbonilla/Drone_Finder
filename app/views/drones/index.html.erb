@@ -1,40 +1,9 @@
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Category
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu average-rating" aria-labelledby="dropdownMenu1">
-    <li><%= button_to "close range", drones_path, name: "distance", method: :get %></li>
-    <li><%= button_to "short range", drones_path, name: "distance", method: :get %></li>
-    <li><%= button_to "mid range", drones_path, name: "distance", method: :get %></li>
-    <li><%= button_to "endurance", drones_path, name: "distance", method: :get %></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Reset Filter</a></li>
-  </ul>
-</div>
-
-
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Max Rate
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu average-rating" aria-labelledby="dropdownMenu1">
-    <li><%= button_to "50€", drones_path, name: "price", method: :get %></li>
-    <li><%= button_to "100€", drones_path, name: "price", method: :get %></li>
-    <li><%= button_to "150€", drones_path, name: "price", method: :get %></li>
-    <li><%= button_to "200€", drones_path, name: "price", method: :get %></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Reset Filter</a></li>
-  </ul>
-</div>
-
 
 
 <br><br><br>
 
 <div class="index-card-results-wrapper">
-<%= render 'pages/search-form-home' %>
+<%= render 'pages/search-form-index' %>
 </div>
 
 <div id="index-wrapper">
