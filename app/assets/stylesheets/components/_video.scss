@@ -10,6 +10,13 @@ video {
  transform: translate(-50%, -50%);
 }
 
+.styled-video-container {
+  background-color: rgba(0,0,0,0.2);
+  width: 100vw;
+  height: 100vh;
+  margin-top: -45px;
+}
+
 .vhome-banner {
   height: 75vh;
   text-align: center;
@@ -20,6 +27,7 @@ video {
   font-weight: lighter;
   z-index: 2;
   padding: 100px 0px 10px 0px;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.15);
   color: $drone-finder-color;
   margin: 0px;
 }

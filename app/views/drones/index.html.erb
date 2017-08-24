@@ -2,45 +2,51 @@
 <br>
 
 <div id="index-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-6">
+  <div class="index-card-results-wrapper">
+    <div class="container">
+      <div class="row">
 
 
-        <% @drones.each do |d| %>
-        <!-- begin card -->
-        <div class="card">
-          <% if d.photos.first %>
-          <%= cl_image_tag d.photos.first.path, height: 200, width: 340, crop: :fill %>
-          <% else %>
-          <%= image_tag("http://via.placeholder.com/340x250") %>
-          <% end %>
+          <% @drones.each do |d| %>
+          <!-- begin card -->
+        <div class="col-xs-7 col-sm-7 col-md-6">
+          <div class="card">
+            <% if d.photos.first %>
+            <%= cl_image_tag d.photos.first.path, height: 200, width: 340, crop: :fill %>
+            <% else %>
+            <%= image_tag("http://via.placeholder.com/340x250") %>
+            <% end %>
 
-          <div class="card-description">
-            <h2>From &euro;<%= d.rate %>. <%= d.title %>.</h2>
-            <h3><%= d.description %>.</h3>
+            <div class="card-description">
+              <h2>From &euro;<%= d.rate %> - <%= d.title %></h2>
+              <h3><%= d.description %></h3>
+            </div>
+
+            <%= link_to drone_path(d.id), class: "card-link" do %>
+            <% end %>
           </div>
+          <!-- end card -->
 
-          <%= link_to drone_path(d.id), class: "card-link" do %>
+        </div>
           <% end %>
-        </div>
-        <!-- end card -->
 
-        </div>
-        <div class="col-xs-6">
-        <% end %>
       </div>
     </div>
   </div>
 
   <!-- Google Map -->
-  <div id="map" class="map-style" style="width: 100%; height: 600px;"></div>
+  <div class="map-style">
+    <div id="map" style="width: 100%; height: 90vh;"></div>
+  </div>
 
 </div>
 
 
 <!-- Required for Gmaps -->
 <% content_for(:after_js) do %>
+<script>
+  $('.navbar-wagon').addClass("fixed-navbar")
+</script>
 <%= javascript_tag do %>
 $(document).ready(function() {
 var handler = Gmaps.build('Google');
