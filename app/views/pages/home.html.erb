@@ -1,16 +1,18 @@
-<%= video_tag(["drone_vid.mp4"], :size => "900x500", :autoplay => true, :loop => true) %>
+<div class="styled-video-container">
+  <%= video_tag(["drone_vid.mp4"], :size => "900x500", :autoplay => true, :loop => true) %>
 
-<div class="vhome-banner">
-  <div class="container">
-    <div class="row">
-      <h1>Drone Finder</h1>
-    </div>
-    <div class="row">
-      <div class="screen">
-        <h3>Rent a drone near you</h3>
+  <div class="vhome-banner">
+    <div class="container">
+      <div class="row">
+        <h1>Drone Finder</h1>
       </div>
+      <div class="row">
+        <div class="screen">
+          <h3>Rent a drone near you</h3>
+        </div>
+      </div>
+      <%= render 'pages/search-form-home' %>
     </div>
-    <%= render 'pages/search-form-home' %>
   </div>
 </div>
 

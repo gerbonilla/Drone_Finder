@@ -3,12 +3,38 @@
 @import "profile";
 #index-wrapper {
   display: flex;
+  margin-top: 45px;
 }
 
 .map-style {
   display: flex;
-  flex: 0 0 400px;
+  width: 400px;
+  position: fixed;
+  top: 45px;
+  right: 0;
+  bottom: 100px;
+  z-index: 4;
+
 }
+
+.index-card-results-wrapper {
+ flex: 0 1 auto;
+ margin-right: 400px;
+ .container {
+  margin-left: 0;
+  margin-right: 400px;
+  width: 100%;
+
+}
+}
+
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 5;}
 
 
 
