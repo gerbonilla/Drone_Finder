@@ -55,7 +55,9 @@
               <p class="price"><span id="price"><%= @drone.rate %></span>€</p>
             </div>
             <div class="col-sm-3">
-              <img class="img-circle" id="img-owner" src="https://kitt.lewagon.com/placeholder/users/random">
+              <!-- <img class="img-circle" id="img-owner" src="https://kitt.lewagon.com/placeholder/users/random"> -->
+
+               <%= cl_image_tag(@drone.user.photo.path, :class => 'img-circle', :id => 'img-owner') %>
               <p><%= @drone.user.first_name %></p>
               <% @drone.user.average_rating.times do %>
                 <i class="fa fa-star"></i>
@@ -119,7 +121,8 @@
 
       <% @reviews.each do |review| %>
       <div class="message">
-        <img class="avatar-large img-circle" src="https://kitt.lewagon.com/placeholder/users/random">
+        <%= cl_image_tag(review.booking.user.photo.path, :class => 'avatar-large img-circle') %>
+
         <div class="message-name">
           <h3><%= review.booking.user.first_name %></h3>
           <p><%= review.created_at.strftime("%d/%m/%Y") %></p>
@@ -145,8 +148,4 @@
 
     </div>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
