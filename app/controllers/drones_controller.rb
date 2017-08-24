@@ -22,6 +22,28 @@ class DronesController < ApplicationController
         # marker.infowindow render_to_string(partial: "/drones/map_box", locals: { drone: drone })
       end
     end
+
+    if params[:distance] == "endurance"
+      @drones = Drone.category("endurance")
+    elsif params[:distance] == "mid range"
+      @drones = Drone.category("mid range")
+    elsif params[:distance] == "close range"
+      @drones = Drone.category("close range")
+    elsif params[:distance] == "short range"
+      @drones = Drone.category("short range")
+    end
+
+
+    if params[:price] == "50€"
+      @drones = Drone.rate(50)
+    elsif params[:price] == "100€"
+      @drones = Drone.rate(100)
+    elsif params[:price] == "150€"
+      @drones = Drone.rate(150)
+    elsif params[:price] == "200€"
+      @drones = Drone.rate(200)
+    end
+
   end
 
 
@@ -77,7 +99,7 @@ class DronesController < ApplicationController
   end
 
   def drone_params
-    params.require(:drone).permit(:title, :description, :rate, :address, photos: [], :feature_attributes => [:category])
+    params.require(:drone).permit(:title, :description, :rate, :address, :max_alt, :category, :range, :battery_life, photos: [] )
   end
 
 end
