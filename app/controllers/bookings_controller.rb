@@ -37,7 +37,7 @@ class BookingsController < ApplicationController
     case params[:status]
     when "confirmed" then @booking.confirm
     when "declined" then @booking.decline
-    when "cancelled" then @booking.decline
+    when "completed" then @booking.complete
     end
     @booking.save
     redirect_to profile_path(current_user.id)
