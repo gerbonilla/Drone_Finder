@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col col-xs-6" id="profile-pic">
         <% if @profile.photo? %>
-          <%= cl_image_tag @profile.photo.path, height: 200, width: 200, gravity: :face, crop: :fill %>
+        <%= cl_image_tag @profile.photo.path, height: 200, width: 200, gravity: :face, crop: :fill %>
         <% else %>
         <%= image_tag("http://via.placeholder.com/340x250") %>
         <% end %>
@@ -17,7 +17,7 @@
               <th scope="row"></th>
               <td>
                 <% if @profile.first_name %>
-                  <%= @profile.first_name %>
+                <%= @profile.first_name %>
                 <% else %>
                 <p>No first name</p>
                 <% end %>
@@ -30,7 +30,7 @@
               <th scope="row"></th>
               <td>
                 <% if @profile.last_name != nil %>
-                  <%= @profile.last_name %>
+                <%= @profile.last_name %>
                 <% else %>
                 <p>No last name</p>
                 <% end %>
@@ -40,7 +40,7 @@
               <th scope="row"></th>
               <td colspan="2">
                 <% if @profile.description != nil %>
-                  <%= @profile.description %>
+                <%= @profile.description %>
                 <% else %>
                 <p>No description</p>
                 <% end %>
@@ -72,15 +72,16 @@
   <div class="header-container-drone-samples">
     <div id="title-column">
       <h3>Your drones</h3>
+      <a href="#" id="drone-down-action"><p>( <%= @user_drones.size %> drones )  <i class="fa fa-caret-down"></i></p></a>
     </div>
   </div>
   <div class="scrolling-wrapper">
     <% @user_drones.each do |d| %>
-    <div class="card card-left-scroll">
+    <div class="card card-left-scroll" id="left-scroll">
       <% if d.photos.first %>
-        <%= cl_image_tag d.photos.first.path, height: 250, width: 340, crop: :fill %>
+      <%= cl_image_tag d.photos.first.path, height: 200, width: 340, crop: :fill %>
       <% else %>
-        <%= image_tag("http://via.placeholder.com/340x250") %>
+      <%= image_tag("http://via.placeholder.com/340x250") %>
       <% end %>
       <div class="card-description">
         <h2><%= d.title %>. <%= d.category %>. </h2>
@@ -93,15 +94,43 @@
     <% end %>
   </div>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="title-column">
-        <%= render 'profiles/user-bookings' %>
+<div class="user-bookings-wrapper">
+  <div class="header-container-drone-samples">
+    <div id="title-column">
+      <h3>Your Bookings</h3>
+      <a href="#" id="bookings-down-action"><p>( <%= @bookings.size %> Items )  <i class="fa fa-caret-down"></i></p></a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="title-column">
+          <div class="user-bookings-content-wrapper">
+            <%= render 'profiles/user-bookings' %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<%= content_for(:after_js) do %>
+<script>
+  $(function() {
+    $('.scrolling-wrapper').hide()
+    $('.user-bookings-content-wrapper').hide()
+    $('a#drone-down-action').click(function(event) {
+      event.preventDefault();
+      $('.scrolling-wrapper').slideToggle("slow");
+    });
+    $('a#bookings-down-action').click(function(event2) {
+      event2.preventDefault();
+      $('.user-bookings-content-wrapper').slideToggle("slow");
+    });
+  });
+</script>
+<% end %>
+
 
 
 
