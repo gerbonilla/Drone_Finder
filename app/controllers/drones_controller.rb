@@ -14,8 +14,8 @@ class DronesController < ApplicationController
         @drones = Drone.all
       end
 
-      @drones = @drones.select { |d| d.rate <= rate_par } unless @drones.blank?
-      @drones = @drones.select { |d| d.range >= range_par } unless @drones.blank?
+      @drones = @drones.select { |d| d.rate.nil? ? false : d.rate <= rate_par } unless @drones.blank?
+      @drones = @drones.select { |d| d.range.nil? ? false : d.range >= range_par } unless @drones.blank?
 
       @marker_hash = Gmaps4rails.build_markers(@drones) do |drone, marker|
         marker.lat drone.latitude
