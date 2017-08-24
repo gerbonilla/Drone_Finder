@@ -6,9 +6,20 @@
   border: 8px solid #ffffff;
 }
 
+.light-grey-bottom-border {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.profile-field-info {
+  padding: 10px 0;
+}
+
 #name-header {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 0px;
+  color: $drone-finder-color;
+  text-align: left;
+  margin-left: 70px;
+  font-size: 30px;
 }
 
 .link-btn-sm {
@@ -30,7 +41,22 @@
   white-space: nowrap;
   background: 0 0;
   border: 0;
+}
 
+table#profileForm1 tr {
+  th, td {
+    border: none;
+  }
+}
+
+#profileForm1 {
+  padding: 15px;
+  border: 1px solid $drone-finder-color;
+  border-radius: 5px;
+}
+
+.width-100 {
+  width: 100%;
 }
 
 
@@ -38,12 +64,12 @@
   opacity: 0.7;
 }
 #profileWrapper {
-  height: 389px;
+  height: 500px;
   margin-top: 50px;
 }
 
 .user-bookings-wrapper {
-    margin: 0 59px;
+  margin: 0 59px;
 }
 
 

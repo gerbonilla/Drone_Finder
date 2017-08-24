@@ -1,12 +1,15 @@
 $(document).ready(function(){
 
-
-  $('#profileForm2').hide();
+  $('.profile-info-container input').hide();
+  $('.profile-info-container .attachinary').hide()
+  // $('.attachinary').hide();
 
   $('#editProfile').click(function(event){
     event.preventDefault();
-    $('#profileForm1').hide();
-    $('#profileForm2').show();
+    $('.profile-info-container label').hide();
+    $('.profile-info-container input').show();
+    $('.profile-info-container .attachinary').show()
+    this.hide();
   });
 
 });

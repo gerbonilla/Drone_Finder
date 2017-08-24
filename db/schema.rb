@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20170824100357) do
     t.integer  "original_rate"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.string   "message"
+    t.text     "message"
     t.index ["drone_id"], name: "index_bookings_on_drone_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
