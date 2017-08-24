@@ -56,10 +56,14 @@
             </div>
             <div class="col-sm-3">
               <!-- <img class="img-circle" id="img-owner" src="https://kitt.lewagon.com/placeholder/users/random"> -->
-               <%= cl_image_tag(@drone.user.photo.path, :class => 'img-circle', :id => 'img-owner') %>
+              <% if @drone.user.photo %>
+              <%= cl_image_tag(@drone.user.photo.path, :class => 'img-circle', :id => 'img-owner') %>
+              <% else %>
+              <%= image_tag("http://via.placeholder.com/340x250", :class => 'img-circle', :id => 'img-owner') %>
+              <% end %>
               <p><%= @drone.user.first_name %></p>
               <% @drone.user.average_rating.times do %>
-                <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
               <% end %>
             </div>
             <div class="col-sm-4 drone-infos">
@@ -136,7 +140,7 @@
         <div class="message-status">
           <p>Rating</p>
           <% review.rating.times do %>
-            <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
           <% end %>
         </div>
 
