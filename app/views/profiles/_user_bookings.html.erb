@@ -6,12 +6,13 @@
         <% if booking.drone.photos %>
           <td><%= cl_image_tag booking.drone.photos.first.path, width: 70, height: 70, crop: :fill, class: "img-circle" %></td>
         <% end %>
-        <td>
+          <td>
           <p class="header"><%= booking.drone.title %></p>
           <p class="content"><%= booking.start_date %></p>
         </td>
         <td><p class="content"><%= booking.message %></p></td>
-        <td>
+        <td id="userBookingStatus">
+
           <% if booking.status == "pending" %>
           <div class="btn-group">
             <p class="btn-xs btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-html="true"><%= booking.status.capitalize %></p>

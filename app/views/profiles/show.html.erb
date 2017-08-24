@@ -72,12 +72,12 @@
   <div class="header-container-drone-samples">
     <div id="title-column">
       <h3>Your drones</h3>
-      <a href="#" id="drone-down-action"><p>( <%= @user_drones.size %> drones )  <i class="fa fa-caret-down"></i></p></a>
+      <a href="#" id="drone-down-action"><p>( <%= current_user.drones.size %> drones )  <i class="fa fa-caret-down"></i></p></a>
     </div>
   </div>
   <div class="scrolling-wrapper">
-    <% @user_drones.each do |d| %>
-    <div class="card card-left-scroll" id="left-scroll">
+    <% current_user.drones.each do |d| %>
+    <div class="card card-left-scroll">
       <% if d.photos.first %>
       <%= cl_image_tag d.photos.first.path, height: 200, width: 340, crop: :fill %>
       <% else %>
