@@ -3,7 +3,9 @@
   <tbody>
     <tr>
       <th class="row"></th>
-      <td><%= booking.drone.photos.first %></td>
+      <% if booking.drone.photos %>
+        <td><%= cl_image_tag booking.drone.photos.first.path, width: 70, height: 70, crop: :fill, class: "img-circle" %></td>
+      <% end %>
       <td>
         <p class="header"><%= booking.drone.title %></p>
         <p class="content"><%= booking.start_date %></p>
