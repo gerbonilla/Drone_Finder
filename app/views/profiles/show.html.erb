@@ -75,7 +75,7 @@
     </div>
   </div>
   <div class="scrolling-wrapper">
-    <% @user_drones.each do |d| %>
+    <% current_user.drones.each do |d| %>
     <div class="card card-left-scroll">
       <% if d.photos.first %>
         <%= cl_image_tag d.photos.first.path, height: 250, width: 340, crop: :fill %>
@@ -97,7 +97,7 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="title-column">
-        <%= render 'profiles/user-bookings' %>
+        <%= render 'user_bookings' %>
       </div>
     </div>
   </div>

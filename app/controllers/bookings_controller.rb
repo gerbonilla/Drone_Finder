@@ -14,9 +14,10 @@ class BookingsController < ApplicationController
     @drone = Drone.find(params[:drone_id])
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
+
     @booking.drone_id = params[:drone_id]
     @booking.original_rate = @booking.total_amount(@booking.start_date, @booking.end_date, @drone.rate)
-    if @booking.user_id = @drone.user_id
+    if @booking.user_id == @drone.user_id
       @booking.status = "personal"
       @booking.save
       flash[:notice] = "you reserved your own drone!"
