@@ -1,0 +1,28 @@
+
+<% address_value = params[:address] if params[:address] %>
+<% start_value = params[:start] if params[:start] %>
+<% end_value = params[:end] if params[:end] %>
+<% rate_value = params[:rate] if params[:rate] %>
+<% range_value = params[:range] if params[:range] %>
+
+<form action="/drones" class="form-inline">
+  <div class="banner-form-styling">
+
+    <input type="text" name="address" value="<%= address_value %>" placeholder="Address" class="form-control banner-form-field-input" id="address-input">
+
+    <div class="input-daterange input-group form-group banner-form-field-input" id="datepicker">
+      <input type="text" class="input form-control" name="start" value="<%= start_value %>" placeholder="Start">
+      <span class="input-group-addon">to</span>
+      <input type="text" class="input form-control" name="end" value="<%= end_value %>" placeholder="End">
+    </div>
+
+    <input type="text" name="range" value="<%= range_value %>" placeholder="Min Range" class="form-control banner-form-field-input" id="range-input">
+
+    <input type="text" name="rate" value="<%= rate_value %>" placeholder="Max Price" class="form-control banner-form-field-input" id="rate-input">
+
+    <button type="submit" class="btn btn-primary banner-form-field-input">Update Search</button>
+</form>
+
+
+
+

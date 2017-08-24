@@ -27,16 +27,6 @@ class Drone < ApplicationRecord
     return average
   end
 
-  scope :category, -> (category) { where category: category }
-  scope :max_alt, ->(alt) { where('max_alt > ?', alt) }
-  scope :range, ->(distance) { where('range > ?', distance) }
-  scope :battery_life, ->(time) { where('battery_life > ?', time) }
-  scope :rate, ->(amount) { where('rate < ?', amount) }
-
-  # validates :category, :inclusion=> { :in => DRONE_CATEGORIES }
-  # validates :max_alt, :inclusion=> { :in => DRONE_MAX_ALT }
-  # validates :range, :inclusion=> { :in => DRONE_RANGE }
-  # validates :battery_life, :inclusion=> { :in => DRONE_BATTERY_LIFE }
 
   # For Google Geocode Lookup
   geocoded_by :address

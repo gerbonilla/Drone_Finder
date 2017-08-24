@@ -4,7 +4,15 @@ class DronesController < ApplicationController
   def index
     if params[:start].blank? || params[:end].blank?
       # @drones = Drone.where.not(latitude: nil, longitude: nil)
+
+      !params[:rate].blank? ? rate_par = params[:rate].to_i : rate_par = 999999
+      !params[:range].blank? ? range_par = params[:range].to_i : range_par = 0
+
       @drones = Drone.near(params[:address], 10)
+
+      @drones = @drones.select { |d| d.rate <= rate_par } unless @drones.blank?
+      @drones = @drones.select { |d| d.range >= range_par } unless @drones.blank?
+
       @marker_hash = Gmaps4rails.build_markers(@drones) do |drone, marker|
         marker.lat drone.latitude
         marker.lng drone.longitude
@@ -14,11 +22,16 @@ class DronesController < ApplicationController
     else
       start_date = date_formatting(params[:start])
       end_date = date_formatting(params[:end])
+
+      !params[:rate].blank? ? rate_par = params[:rate].to_i : rate_par = 999999
+      !params[:range].blank? ? range_par = params[:range].to_i : range_par = 0
+
+      @drones = @drones.select { |d| d.rate <= rate_par } unless @drones.blank?
+      @drones = @drones.select { |d| d.range >= range_par } unless @drones.blank?
+
       @drones = Drone.near(params[:address], 10).select { |d| d.available?(start_date, end_date) }
 
 
-      # @drones = Drone.all.select { |d| d.available?(start_date, end_date) }
-      # @drones = @drones.where.not(latitude: nil, longitude: nil)
 
       @marker_hash = Gmaps4rails.build_markers(@drones) do |drone, marker|
         marker.lat drone.latitude
@@ -26,28 +39,6 @@ class DronesController < ApplicationController
         # marker.infowindow render_to_string(partial: "/drones/map_box", locals: { drone: drone })
       end
     end
-
-    if params[:distance] == "endurance"
-      @drones = Drone.category("endurance")
-    elsif params[:distance] == "mid range"
-      @drones = Drone.category("mid range")
-    elsif params[:distance] == "close range"
-      @drones = Drone.category("close range")
-    elsif params[:distance] == "short range"
-      @drones = Drone.category("short range")
-    end
-
-
-    if params[:price] == "50€"
-      @drones = Drone.rate(50)
-    elsif params[:price] == "100€"
-      @drones = Drone.rate(100)
-    elsif params[:price] == "150€"
-      @drones = Drone.rate(150)
-    elsif params[:price] == "200€"
-      @drones = Drone.rate(200)
-    end
-
   end
 
 
