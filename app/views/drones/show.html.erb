@@ -122,7 +122,7 @@
 
       <% @reviews.each do |review| %>
       <div class="message">
-        <%= cl_image_tag(review.booking.user.photo.path, :class => 'avatar-large img-circle') %>
+        <%= cl_image_tag(review.booking.user.photo.path, gravity: :face, crop: :scale, crop: :crop, class: 'img-circle') %>
 
         <div class="message-name">
           <h3><%= review.booking.user.first_name %></h3>
