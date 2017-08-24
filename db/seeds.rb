@@ -132,13 +132,23 @@ puts "All done with drones, onto bookings..."
 
 status = ["pending", "confirmed", "declined", "completed"]
 
+messages = ["Thanks!  Can't wait to fly the drone.",
+            "Looking forward to it!  Thank you...",
+            "Hello, I really like your drone. It would be absolutly terrific if I could rent it for the weekend",
+            "Cool!",
+            "Hey, there's a chance I'll have to cancel but I hope not!",
+            "The photos look great.  I'll see you this weekend!",
+            "Dude, I hope it's not too hard to fly, I've already wrecked five!",
+            "Hope to see you Friday, thanks!",
+            "It's going to be great!!!"]
+
 Drone.all.each do |drone|
   sample_users.delete(drone.user)
-  Booking.create(user: sample_users.sample, drone_id: drone.id, status: 'pending', start_date: Date.new(2017, 8, rand(26..30)), end_date: Date.new(2017, 9, rand(1..7)))
-  Booking.create(user: sample_users.sample, drone_id: drone.id, status: 'confirmed', start_date: Date.new(2017, 8, rand(26..30)), end_date: Date.new(2017, 9, rand(1..7)))
-  Booking.create(user: sample_users.sample, drone_id: drone.id, status: 'declined', start_date: Date.new(2017, 8, rand(26..30)), end_date: Date.new(2017, 9, rand(1..7)))
-  Booking.create(user: sample_users.sample, drone_id: drone.id, status: status.sample, start_date: Date.new(2017, 8, rand(26..30)), end_date: Date.new(2017, 9, rand(1..7)))
-  Booking.create(user: sample_users.sample, drone_id: drone.id, status: status.sample, start_date: Date.new(2017, 8, rand(26..30)), end_date: Date.new(2017, 9, rand(1..7)))
+  Booking.create(user: sample_users.sample, message: messages.sample, drone_id: drone.id, status: 'pending', start_date: Date.new(2017, 8, rand(26..30)), end_date: Date.new(2017, 9, rand(1..7)))
+  Booking.create(user: sample_users.sample, message: messages.sample, drone_id: drone.id, status: 'confirmed', start_date: Date.new(2017, 8, rand(26..30)), end_date: Date.new(2017, 9, rand(1..7)))
+  Booking.create(user: sample_users.sample, message: messages.sample, drone_id: drone.id, status: 'declined', start_date: Date.new(2017, 8, rand(26..30)), end_date: Date.new(2017, 9, rand(1..7)))
+  Booking.create(user: sample_users.sample, message: messages.sample, drone_id: drone.id, status: status.sample, start_date: Date.new(2017, 8, rand(26..30)), end_date: Date.new(2017, 9, rand(1..7)))
+  Booking.create(user: sample_users.sample, message: messages.sample, drone_id: drone.id, status: status.sample, start_date: Date.new(2017, 8, rand(26..30)), end_date: Date.new(2017, 9, rand(1..7)))
 
   rand(1..4).times do
     Booking.create(user: sample_users.sample, drone_id: drone.id, status: 'comlpeted', start_date: Date.new(2017, 8, rand(26..30)), end_date: Date.new(2017, 9, rand(1..7)))

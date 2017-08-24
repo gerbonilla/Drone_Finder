@@ -1,15 +1,31 @@
 
+<% if params[:address] %>
+  <% address_placeholder = params[:address] %>
+<% else %>
+  <% address_placeholder = 'Address' %>
+<% end %>
+<% if params[:start] %>
+  <% start_placeholder = params[:start] %>
+<% else %>
+  <% start_placeholder = 'Start' %>
+<% end %>
+<% if params[:end] %>
+  <% end_placeholder = params[:end] %>
+<% else %>
+  <% end_placeholder = 'End' %>
+<% end %>
+
 <form action="/drones" class="form-inline">
   <div class="banner-form-styling">
     <div class="row">
       <div class="col-xs-12 col-md-2 col-md-offset-2 form-group text-right">
-        <input type="text" name="address", placeholder="Address" class="form-control banner-form-field-input" id="adress-input">
+        <input type="text" name="address", placeholder=<%= address_placeholder %> class="form-control banner-form-field-input" id="adress-input">
       </div>
       <div class="col-xs-12 col-md-4 text-left">
         <div class="input-daterange input-group form-group banner-form-field-input" id="datepicker">
-          <input type="text" class="input form-control" name="start" placeholder="start">
+          <input type="text" class="input form-control" name="start" placeholder=<%= start_placeholder %>>
           <span class="input-group-addon">to</span>
-          <input type="text" class="input form-control" name="end" placeholder="end">
+          <input type="text" class="input form-control" name="end" placeholder=<%= end_placeholder %>>
         </div>
       </div>
       <div class="col-xs-12 col-md-2">
