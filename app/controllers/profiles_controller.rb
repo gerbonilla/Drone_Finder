@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
         @drone_bookings << booking
       end
     end
-    @bookings = current_user.bookings.order(:status)
+    @bookings = current_user.bookings.order(status: :desc)
     @booking = Booking.find(params[:id])
   end
 
