@@ -92,6 +92,25 @@
   </div>
 </div>
 
+<div class="user-bookings-wrapper">
+  <div class="header-container-drone-samples">
+    <div id="title-column">
+      <h3>Your drone requests</h3>
+      <a href="#" id="drone-requests-down-action"><p>( <%= @bookings.size %> Items )  <i class="fa fa-caret-down"></i></p></a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="title-column">
+          <div class="drone-requests-content-wrapper">
+            <%= render 'user_drone_request' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="user-bookings-wrapper">
   <div class="header-container-drone-samples">
@@ -112,38 +131,22 @@
     </div>
   </div>
 </div>
+
+
+
 <br>
 <br>
 <br>
 <br>
 <br>
 
-
-<div class="user-bookings-wrapper">
-  <div class="header-container-drone-samples">
-    <div id="title-column">
-      <h3>Requested your drone</h3>
-      <a href="#" id="bookings-down-action"><p>( <%= @bookings.size %> Items )  <i class="fa fa-caret-down"></i></p></a>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="title-column">
-          <div class="user-bookings-content-wrapper">
-            <%= render 'user_drone_request' %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 <%= content_for(:after_js) do %>
 <script>
   $(function() {
     $('.scrolling-wrapper').hide()
+    $('.drone-requests-content-wrapper').hide()
 
     $('a#drone-down-action').click(function(event) {
       event.preventDefault();
@@ -152,6 +155,10 @@
     $('a#bookings-down-action').click(function(event2) {
       event2.preventDefault();
       $('.user-bookings-content-wrapper').slideToggle("slow");
+    });
+    $('a#drone-requests-down-action').click(function(event2) {
+      event2.preventDefault();
+      $('.drone-requests-content-wrapper').slideToggle("slow");
     });
   });
 </script>
