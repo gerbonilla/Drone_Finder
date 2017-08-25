@@ -76,7 +76,7 @@
       </div>
 
       <!-- Book this drone -->
-      <div class="row">
+               <div class="row">
         <div class="col-sm-3">
           <h2>Book this drone for <%= @drone.rate  %>€ a day!</h2>
           <%= simple_form_for [@drone, @booking] do |f| %>
@@ -89,6 +89,42 @@
           <% end %>
         </div>
       </div>
+
+<!--
+
+      <form action="/drones/<%= @drone.id %>/bookings/" class="form-inline" method="post">
+        <div class="banner-form-styling">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <div class="row">
+          <div class="col-xs-12 col-md-4 text-left">
+            <h2>Book this drone for <%= @drone.rate %>€ a day</h2>
+            </div>
+              <div class="col-xs-12 col-md-4 text-left">
+              <div class="input-daterange input-group form-group banner-form-field-input" id="datepicker">
+                <input type="text" class="input form-control" name="start_date" value="<%= session[:start] %>" placeholder="<%= session[:start] %>">
+                <span class="input-group-addon">to</span>
+                <input type="text" class="input form-control" name="end_date" value="<%= session[:end] %>" placeholder="<%= session[:end] %>">
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-4 text-left">
+              <h4>Leave a short message for <%= User.find(@drone.user_id).first_name %></h4>
+              <div class="input-daterange input-group form-group banner-form-field-input text-left" id="datepicker">
+                <input type="text" class="input form-control" name="message" placeholder="Hi! I would love to fly your drone...">
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-4 text-left">
+            <h3>total amount: <span id="total_amount"></span>€</h3>
+            </div>
+            <%= @number_of_days %>
+            <div class="col-xs-12 col-md-2">
+              <button type="submit" class="btn btn-primary banner-form-field-input">Request Booking</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+ -->
+
 
       <!-- Features -->
       <div class="row drone-header"><h3>Features:</h3></div>

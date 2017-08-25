@@ -21,12 +21,12 @@ class BookingsController < ApplicationController
       @booking.status = "personal"
       @booking.save
       flash[:notice] = "you reserved your own drone!"
-      redirect_to drone_path(@booking.drone_id)
+      redirect_to profile_path(@booking.user_id)
     else
       @booking.status = "pending"
       if @booking.save
         flash[:notice] = "your request has been sent!"
-        redirect_to drone_path(@booking.drone_id)
+        redirect_to profile_path(@booking.user_id)
       else
         render :new
       end
