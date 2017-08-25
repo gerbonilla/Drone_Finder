@@ -59,19 +59,12 @@
       </div>
 
     </div>
-<!--       <div >
-        <%= simple_form_for(@profile, url: profile_path(@profile), method: :patch, html: { class: "form-group"}) do |f| %>
-        <%= f.input :first_name, label: false, placeholder: "First name" %>
-        <%= f.input :last_name, label: false, placeholder: "Last name" %>
-        <%= f.input :description, label: false, placeholder: "Tell us about yourself" %>
-        <%= f.input :email, label: false, placeholder: "example@gmail.com" %>
-        <%= f.input :photo, as: :attachinary %>
-        <%= f.button :submit, class: "btn", id: "update-profile" %>
-        <% end %>
-      </div> -->
   </div>
 </div>
 </div>
+
+
+
 <div class="drones-wrapper">
   <div class="header-container-drone-samples">
     <div id="title-column">
@@ -98,6 +91,8 @@
     <% end %>
   </div>
 </div>
+
+
 <div class="user-bookings-wrapper">
   <div class="header-container-drone-samples">
     <div id="title-column">
@@ -117,6 +112,28 @@
     </div>
   </div>
 </div>
+
+
+<div class="user-bookings-wrapper">
+  <div class="header-container-drone-samples">
+    <div id="title-column">
+      <h3>Requested your drone</h3>
+      <a href="#" id="bookings-down-action"><p>( <%= @bookings.size %> Items )  <i class="fa fa-caret-down"></i></p></a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="title-column">
+          <div class="user-bookings-content-wrapper">
+            <%= render 'user_drone_request' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <%= content_for(:after_js) do %>
 <script>
