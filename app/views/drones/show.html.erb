@@ -80,9 +80,11 @@
         <div class="col-sm-3">
           <h2>Book this drone for <%= @drone.rate  %>€ a day!</h2>
           <%= simple_form_for [@drone, @booking] do |f| %>
+
           <%= f.input :start_date, as: :date, :default => Date.today  %>
           <%= f.input :end_date, as: :date, :default => Date.today + 1 %>
-          <%= f.input :message, as: :text  %>
+          <%= f.input :message, as: :text, placeholder: 'Say hi to the drone owner'  %>
+
           <%= @number_of_days %>
           <h3>total amount: <span id="total_amount"><%= @drone.rate %></span>€</h3>
           <%= f.submit "request booking", class: "btn btn-primary" %>
