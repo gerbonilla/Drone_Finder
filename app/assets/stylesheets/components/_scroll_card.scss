@@ -13,6 +13,10 @@
   }
 }
 
+.button-to-drone-finder-green {
+  background-color: $drone-finder-color;
+  border: 1px solid $drone-finder-color;
+}
 
 .header-container-drone-samples {
   display: flex;
