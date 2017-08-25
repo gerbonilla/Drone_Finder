@@ -7,9 +7,13 @@
       <%= image_tag "logo.png" %>
     <% end %>
   <% end %>
-  <% if current_page?(drones_path) || current_page?(controller: 'profiles', action: 'show') %>
+  <% if current_page?(drones_path) %>
     <%= render 'pages/search-form-index' %>
   <% end %>
+  <% if current_page?(profile_path(current_user)) %>
+    <%= render 'pages/search-form-index' %>
+  <% end %>
+
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
