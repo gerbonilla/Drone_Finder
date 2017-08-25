@@ -17,7 +17,8 @@ class ProfilesController < ApplicationController
 
   def update
     if @profile.update(user_params)
-      redirect_to profile_path(@profile), alert:"user created successfully."
+      flash[:notice] = "Your profile was updated!"
+      redirect_to profile_path(@profile)
     else
       render :new, alert: "Error creating user."
     end
