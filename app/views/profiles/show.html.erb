@@ -17,16 +17,16 @@
             <div class="row">
               <div class="col-xs-12 light-grey-bottom-border profile-field-info">
                 <% if @profile.first_name %>
-                <%= f.input :first_name, label: @profile.first_name, placeholder: "First name" %>
+                <%= f.input :first_name, label: @profile.first_name, placeholder: "First name", class: "profile-name" %>
                 <% else %>
-                <%= f.input :first_name, label: "No First Name", placeholder: "First name" %>
+                <%= f.input :first_name, label: "No First Name", placeholder: "First name", class: "profile-name" %>
                 <% end %>
               </div>
             </div>
             <div class="row">
               <div class="col-xs-12 light-grey-bottom-border profile-field-info">
                 <% if @profile.last_name != nil %>
-                <%= f.input :last_name, label: @profile.last_name, placeholder: "Last name" %>
+                <%= f.input :last_name, label: @profile.last_name, placeholder: "Last name", class: "profile-name" %>
                 <% else %>
                 <%= f.input :last_name, label: "No Last Name", placeholder: "Last name" %>
                 <% end %>
@@ -35,7 +35,7 @@
             <div class="row">
               <div class="col-xs-12 light-grey-bottom-border profile-field-info">
                 <% if @profile.description != nil %>
-                <%= f.input :description, label: @profile.description, placeholder: "Tell us about yourself" %>
+                <%= f.input :description, label: @profile.description, placeholder: "Tell us about yourself", id: "profile-description" %>
                 <% else %>
                 <%= f.input :description, label: "No Description", placeholder: "Tell us about yourself" %>
                 <% end %>
@@ -43,7 +43,7 @@
             </div>
             <div class="row">
               <div class="col-xs-12 light-grey-bottom-border profile-field-info">
-                <%= f.input :email, label: @profile.email, placeholder: "example@gmail.com" %>
+                <%= f.input :email, label: @profile.email, placeholder: "example@gmail.com", id: "email-profile" %>
               </div>
             </div>
             <div class="row">
@@ -96,7 +96,7 @@
   <div class="header-container-drone-samples">
     <div id="title-column">
       <h3>Your drone requests</h3>
-      <a href="#" id="drone-requests-down-action"><p>( <%= @bookings.size %> Items )  <i class="fa fa-caret-down"></i></p></a>
+      <a href="#" id="drone-requests-down-action"><p>( <%= @drone_bookings.size %> Bookings )  <i class="fa fa-caret-down"></i></p></a>
     </div>
   </div>
   <div class="container">
@@ -116,7 +116,7 @@
   <div class="header-container-drone-samples">
     <div id="title-column">
       <h3>Your Bookings</h3>
-      <a href="#" id="bookings-down-action"><p>( <%= @bookings.size %> Items )  <i class="fa fa-caret-down"></i></p></a>
+      <a href="#" id="bookings-down-action"><p>( <%= @bookings.size %> Requests )  <i class="fa fa-caret-down"></i></p></a>
     </div>
   </div>
   <div class="container">
