@@ -3,7 +3,7 @@
 <br><br><br>
 
 <div class="index-card-results-wrapper">
-<%= render 'pages/search-form-index' %>
+<!-- <%= render 'pages/search-form-index' %> -->
 </div>
 
 <div id="index-wrapper">
@@ -24,7 +24,11 @@
 
             <div class="card-description">
               <h2>From &euro;<%= d.rate %> - <%= d.title %></h2>
-              <h3><%= d.description %></h3>
+              <h3><%= d.category.titlecase %> | Range: <%= d.range %>km |
+              <% d.average_rating.times do %>
+              <i class="fa fa-star"></i>
+              <% end %>
+              </h3>
             </div>
 
             <%= link_to drone_path(d.id), class: "card-link" do %>
@@ -68,3 +72,9 @@ handler.getMap().setZoom(14);
 });
 <% end %>
 <% end %>
+
+
+<% content_for(:title_tag) do %>
+  Drones in <%= params[:address] %>
+<% end %>
+

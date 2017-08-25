@@ -8,10 +8,14 @@ class DronesController < ApplicationController
       !params[:rate].blank? ? rate_par = params[:rate].to_i : rate_par = 999999
       !params[:range].blank? ? range_par = params[:range].to_i : range_par = 0
 
-      @drones = Drone.near(params[:address], 10)
+      if !params[:address].blank?
+        @drones = Drone.near(params[:address], 10)
+      else
+        @drones = Drone.all
+      end
 
-      @drones = @drones.select { |d| d.rate <= rate_par } unless @drones.blank?
-      @drones = @drones.select { |d| d.range >= range_par } unless @drones.blank?
+      @drones = @drones.select { |d| d.rate.nil? ? false : d.rate <= rate_par } unless @drones.blank?
+      @drones = @drones.select { |d| d.range.nil? ? false : d.range >= range_par } unless @drones.blank?
 
       @marker_hash = Gmaps4rails.build_markers(@drones) do |drone, marker|
         marker.lat drone.latitude
@@ -32,9 +36,11 @@ class DronesController < ApplicationController
       @drones = @drones.select { |d| d.rate <= rate_par } unless @drones.blank?
       @drones = @drones.select { |d| d.range >= range_par } unless @drones.blank?
 
-      @drones = Drone.near(params[:address], 10).select { |d| d.available?(start_date, end_date) }
-
-
+      if !params[:address].blank?
+        @drones = Drone.near(params[:address], 10).select { |d| d.available?(start_date, end_date) }
+      else
+        @drones = Drone.all.select { |d| d.available?(start_date, end_date) }
+      end
 
       @marker_hash = Gmaps4rails.build_markers(@drones) do |drone, marker|
         marker.lat drone.latitude

@@ -4,6 +4,13 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :update]
 
   def show
+    @user_drones = current_user.drones
+    @drone_bookings = []
+    @user_drones.each do |drone|
+      drone.bookings.each do |booking|
+        @drone_bookings << booking
+      end
+    end
     @bookings = current_user.bookings.order(:status)
     @booking = Booking.find(params[:id])
   end

@@ -10,18 +10,18 @@
     </ol>
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
-      <div class="item active banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @drone.photos[0].path %>');">
+      <div class="item active banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.1) 50%), url('<%= cl_image_path @drone.photos[0].path %>');">
       </div>
       <% if @drone.photos[1] %>
-      <div class="item banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @drone.photos[1].path %>');">
+      <div class="item banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.1) 50%), url('<%= cl_image_path @drone.photos[1].path %>');">
       </div>
       <% end %>
       <% if @drone.photos[2] %>
-      <div class="item banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @drone.photos[2].path %>');">
+      <div class="item banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.1) 50%), url('<%= cl_image_path @drone.photos[2].path %>');">
       </div>
       <% end %>
       <% if @drone.photos[3] %>
-      <div class="item banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @drone.photos[3].path %>');">
+      <div class="item banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.1) 50%), url('<%= cl_image_path @drone.photos[3].path %>');">
       </div>
       <% end %>
     </div>
@@ -56,11 +56,14 @@
             </div>
             <div class="col-sm-3">
               <!-- <img class="img-circle" id="img-owner" src="https://kitt.lewagon.com/placeholder/users/random"> -->
-
-               <%= cl_image_tag(@drone.user.photo.path, :class => 'img-circle', :id => 'img-owner') %>
+              <% if @drone.user.photo %>
+              <%= cl_image_tag(@drone.user.photo.path, :class => 'img-circle', :id => 'img-owner') %>
+              <% else %>
+              <%= image_tag("http://via.placeholder.com/340x250", :class => 'img-circle', :id => 'img-owner') %>
+              <% end %>
               <p><%= @drone.user.first_name %></p>
               <% @drone.user.average_rating.times do %>
-                <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
               <% end %>
             </div>
             <div class="col-sm-4 drone-infos">
@@ -81,8 +84,7 @@
           <%= f.input :end_date, as: :date %>
           <%= f.input :message, as: :text  %>
           <%= @number_of_days %>
-
-          <h3>total amount: <span id="total_amount">0</span> </h3>
+          <h3>total amount: <span id="total_amount">0</span>€</h3>
           <%= f.submit "request booking", class: "btn btn-primary" %>
           <% end %>
         </div>
@@ -174,7 +176,7 @@
         <div class="message-status">
           <p>Rating</p>
           <% review.rating.times do %>
-            <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
           <% end %>
         </div>
 
@@ -185,5 +187,11 @@
 
 
     </div>
+
+
+  <% content_for(:title_tag) do %>
+    the "<%= @drone.title %>"
+  <% end %>
+
 
 

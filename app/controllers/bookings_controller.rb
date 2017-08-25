@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
   def create
     @drone = Drone.find(params[:drone_id])
     @booking = Booking.new(booking_params)
-    @booking.user_id = current_user.id
+    @booking.user = current_user
 
     @booking.drone_id = params[:drone_id]
     @booking.original_rate = @booking.total_amount(@booking.start_date, @booking.end_date, @drone.rate)

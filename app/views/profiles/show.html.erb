@@ -59,19 +59,12 @@
       </div>
 
     </div>
-<!--       <div >
-        <%= simple_form_for(@profile, url: profile_path(@profile), method: :patch, html: { class: "form-group"}) do |f| %>
-        <%= f.input :first_name, label: false, placeholder: "First name" %>
-        <%= f.input :last_name, label: false, placeholder: "Last name" %>
-        <%= f.input :description, label: false, placeholder: "Tell us about yourself" %>
-        <%= f.input :email, label: false, placeholder: "example@gmail.com" %>
-        <%= f.input :photo, as: :attachinary %>
-        <%= f.button :submit, class: "btn", id: "update-profile" %>
-        <% end %>
-      </div> -->
   </div>
 </div>
 </div>
+
+
+
 <div class="drones-wrapper">
   <div class="header-container-drone-samples">
     <div id="title-column">
@@ -98,6 +91,27 @@
     <% end %>
   </div>
 </div>
+
+<div class="user-bookings-wrapper">
+  <div class="header-container-drone-samples">
+    <div id="title-column">
+      <h3>Your drone requests</h3>
+      <a href="#" id="drone-requests-down-action"><p>( <%= @bookings.size %> Items )  <i class="fa fa-caret-down"></i></p></a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="title-column">
+          <div class="drone-requests-content-wrapper">
+            <%= render 'user_drone_request' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="user-bookings-wrapper">
   <div class="header-container-drone-samples">
     <div id="title-column">
@@ -118,11 +132,22 @@
   </div>
 </div>
 
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
 <%= content_for(:after_js) do %>
 <script>
   $(function() {
     $('.scrolling-wrapper').hide()
-    $('.user-bookings-content-wrapper').hide()
+    $('.drone-requests-content-wrapper').hide()
+
     $('a#drone-down-action').click(function(event) {
       event.preventDefault();
       $('.scrolling-wrapper').slideToggle("slow");
@@ -131,12 +156,21 @@
       event2.preventDefault();
       $('.user-bookings-content-wrapper').slideToggle("slow");
     });
+    $('a#drone-requests-down-action').click(function(event2) {
+      event2.preventDefault();
+      $('.drone-requests-content-wrapper').slideToggle("slow");
+    });
   });
 </script>
 <% end %>
 
 
 
+<% if @profile.first_name %>
+  <% content_for(:title_tag) do %>
+    Welcome <%= @profile.first_name %>
+  <% end %>
+<% end %>
 
 
 
