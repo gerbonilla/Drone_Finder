@@ -159,39 +159,48 @@
       <!-- Reviews -->
       <div class="row drone-header"><h3>Reviews:</h3></div>
 
+
       <% @reviews.each do |review| %>
-      <div class="message">
-        <%= cl_image_tag(review.booking.user.photo.path, gravity: :face, crop: :scale, crop: :crop, class: 'img-circle') %>
-
-        <div class="message-name">
-          <h3><%= review.booking.user.first_name %></h3>
-          <p><%= review.created_at.strftime("%d/%m/%Y") %></p>
-        </div>
-        <div class="message-body">
-          <p><strong><%= review.title %></strong></p>
-          <p>
-            <%= review.content %>
-          </p>
-        </div>
-        <div class="message-status">
-          <p>Rating</p>
-          <% review.rating.times do %>
-          <i class="fa fa-star"></i>
-          <% end %>
+      <div class="row width-100 review-show-page">
+        <div class="col col-sm-2">
+          <div class="message">
+            <%= cl_image_tag(review.booking.user.photo.path, gravity: :face, crop: :scale, crop: :crop, class: 'img-circle') %>
+          </div>
         </div>
 
+        <div class="col col-sm-2">
+          <div class="message-name">
+            <h3><%= review.booking.user.first_name %></h3>
+            <p><%= review.created_at.strftime("%d/%m/%Y") %></p>
+          </div>
+        </div>
+
+        <div class="col col-sm-6">
+          <div class="message-body">
+            <p><strong><%= review.title %></strong></p>
+            <p>
+              <%= review.content %>
+            </p>
+          </div>
+        </div>
+
+        <div class="col col-sm-2">
+          <div class="message-status">
+            <p>Rating</p>
+            <% review.rating.times do %>
+            <i class="fa fa-star"></i>
+            <% end %>
+          </div>
+        </div>
       </div>
       <% end %>
 
+    </div></div></div>
 
 
-
-    </div>
-
-
-  <% content_for(:title_tag) do %>
+    <% content_for(:title_tag) do %>
     the "<%= @drone.title %>"
-  <% end %>
+    <% end %>
 
 
 
