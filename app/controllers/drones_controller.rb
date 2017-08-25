@@ -23,6 +23,9 @@ class DronesController < ApplicationController
       start_date = date_formatting(params[:start])
       end_date = date_formatting(params[:end])
 
+      session[:start] = params[:start]
+      session[:end] = params[:end]
+
       !params[:rate].blank? ? rate_par = params[:rate].to_i : rate_par = 999999
       !params[:range].blank? ? range_par = params[:range].to_i : range_par = 0
 
