@@ -5,23 +5,35 @@
 <% rate_value = params[:rate] if params[:rate] %>
 <% range_value = params[:range] if params[:range] %>
 
+<div class="navbar-search-box">
 <form action="/drones" class="form-inline">
   <div class="banner-form-styling">
-
-    <input type="text" name="address" value="<%= address_value %>" placeholder="Address" class="form-control banner-form-field-input" id="address-input">
-
-    <div class="input-daterange input-group form-group banner-form-field-input" id="datepicker">
-      <input type="text" class="input form-control" name="start" value="<%= start_value %>" placeholder="Start">
-      <span class="input-group-addon">to</span>
-      <input type="text" class="input form-control" name="end" value="<%= end_value %>" placeholder="End">
+    <div class="container width-100">
+      <div class="row">
+        <div class="col-xs-2 no-padding">
+          <input type="text" name="address" value="<%= address_value %>" placeholder="Address" class="form-control banner-form-field-input" id="address-input">
+        </div>
+        <div class="col-xs-4 no-padding">
+          <div class="input-daterange input-group form-group banner-form-field-input" id="datepicker">
+            <input type="text" class="input form-control" name="start" value="<%= start_value %>" placeholder="Start">
+            <span class="input-group-addon"></span>
+            <input type="text" class="input form-control" name="end" value="<%= end_value %>" placeholder="End">
+          </div>
+        </div>
+        <div class="col-xs-2 no-padding">
+          <input type="text" name="range" value="<%= range_value %>" placeholder="Min Range" class="form-control banner-form-field-input" id="range-input">
+        </div>
+        <div class="col-xs-2 no-padding">
+          <input type="text" name="rate" value="<%= rate_value %>" placeholder="Max Price" class="form-control banner-form-field-input" id="rate-input">
+        </div>
+        <div class="col-xs-2 no-padding">
+          <button type="submit" class="btn btn-primary banner-form-field-input">Go</button>
+        </div>
+      </div>
     </div>
-
-    <input type="text" name="range" value="<%= range_value %>" placeholder="Min Range" class="form-control banner-form-field-input" id="range-input">
-
-    <input type="text" name="rate" value="<%= rate_value %>" placeholder="Max Price" class="form-control banner-form-field-input" id="rate-input">
-
-    <button type="submit" class="btn btn-primary banner-form-field-input">Update Search</button>
-</form>
+    </div>
+  </form>
+</div>
 
 
 
