@@ -1,54 +1,69 @@
 
 
+<%= video_tag(["clouds.mp4"], :size => "900x500", :autoplay => true, :loop => true) %>
+
 
 <div class="container">
 
+<div class="add-new-drone">
+    <%= simple_form_for @drone do |f| %>
 
-  <%= simple_form_for @drone do |f| %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+        <h1 class="text-center">Add A Drone</h1>
+        <%= f.input :title %>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+        <%= f.input :description %>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+        <%= f.input :address %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-2 col-sm-offset-3 col-lg-1 col-lg-offset-4">
+        <%= f.input :rate, placeholder: "#.##€" %>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-lg-3">
+        <%= f.input :category, collection: Drone::DRONE_CATEGORIES %>
+      </div>
+    </div>
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-    <h1>Add A Drone</h1>
-      <%= f.input :title %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-2 col-sm-offset-3 col-lg-1 col-lg-offset-4">
+        <%= f.input :max_alt, collection: Drone::DRONE_MAX_ALT %>
+      </div>
+      <div class="col-xs-12 col-sm-2 col-lg-1">
+        <%= f.input :range, collection: Drone::DRONE_RANGE %>
+      </div>
+      <div class="col-xs-12 col-sm-2 col-lg-2">
+        <%= f.input :battery_life, collection: Drone::DRONE_BATTERY_LIFE %>
+      </div>
     </div>
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-      <%= f.input :description %>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-      <%= f.input :address %>
-    </div>
-  </div>
-  <div class="row">
-  <div class="col-xs-12 col-sm-2 col-sm-offset-3 col-lg-1 col-lg-offset-4">
-      <%= f.input :rate, placeholder: "#.##€" %>
-    </div>
-    <div class="col-xs-12 col-sm-4 col-lg-3">
-      <%= f.input :category, collection: Drone::DRONE_CATEGORIES %>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-2 col-sm-offset-3 col-lg-1 col-lg-offset-4">
-      <%= f.input :max_alt, collection: Drone::DRONE_MAX_ALT %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+        <%= f.input :photos, as: :attachinary %>
+      </div>
     </div>
-    <div class="col-xs-12 col-sm-2 col-lg-1">
-      <%= f.input :range, collection: Drone::DRONE_RANGE %>
-    </div>
-    <div class="col-xs-12 col-sm-2 col-lg-2">
-      <%= f.input :battery_life, collection: Drone::DRONE_BATTERY_LIFE %>
-    </div>
-  </div>
-
-  <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-      <%= f.input :photos, as: :attachinary %>
+      <br>
+      <%= f.button :submit, class: "btn btn-primary btn-width-to-fit" %>
     </div>
+    <% end %>
   </div>
-  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-    <br>
-    <%= f.button :submit, class: "btn btn-primary btn-width-to-fit" %>
-  </div>
-  <% end %>
 </div>
 
 <br><br><br><br><br><br>
+
+
+<%= content_for(:after_js) do %>
+<script>
+  $(function() {
+    $('.navbar-wagon').addClass('home-page-navbar');
+    $('.footer').addClass('home-page-navbar');
+    $('.footer-links').addClass('home-page-navbar');
+    $('.footer-wagon-brand').addClass('home-page-navbar');
+  })
+</script>
+<% end %>
