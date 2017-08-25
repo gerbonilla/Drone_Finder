@@ -23,7 +23,6 @@ $(document).ready(function() {
       $('#total_amount').text(total_amount)
     } else {
       $('#total_amount').text(0)
-      alert("end_date must be after start_date")
     };
   });
 });
