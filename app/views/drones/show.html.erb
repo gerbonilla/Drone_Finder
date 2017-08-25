@@ -82,7 +82,7 @@
           <%= simple_form_for [@drone, @booking] do |f| %>
           <%= f.input :start_date, as: :date %>
           <%= f.input :end_date, as: :date %>
-          <%= f.input :message, as: :text  %>
+          <%= f.input :message, as: :text, placeholder: 'Say hi to the drone owner'  %>
           <%= @number_of_days %>
           <h3>total amount: <span id="total_amount">0</span>€</h3>
           <%= f.submit "request booking", class: "btn btn-primary" %>
